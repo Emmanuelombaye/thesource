@@ -1,0 +1,224 @@
+.story {
+  background: var(--cream);
+}
+
+.heading {
+  font-family: var(--font-cormorant);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.prose {
+  max-width: 640px;
+}
+
+.prose p {
+  color: var(--soft-ink);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.quote {
+  margin-top: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+}
+
+.quote p {
+  font-family: var(--font-cormorant);
+  font-size: 1.375rem;
+  font-style: italic;
+}
+
+.quote footer {
+  font-size: 0.875rem;
+  color: var(--soft-ink);
+  margin-top: 0.75rem;
+}
+
+.standards {
+  background: var(--ivory);
+}
+
+.standardList {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.standardItem {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.2);
+}
+
+.numeral {
+  font-family: var(--font-cinzel);
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+
+.standardItem h3 {
+  font-family: var(--font-cormorant);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.standardItem p {
+  color: var(--soft-ink);
+  line-height: 1.7;
+}
+
+.standardItem a {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.badges {
+  padding: 3rem 0;
+  background: var(--white);
+  border-top: 1px solid rgba(190, 158, 86, 0.15);
+  border-bottom: 1px solid rgba(190, 158, 86, 0.15);
+}
+
+.badgeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.badge {
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.badgeText {
+  font-size: 0.875rem;
+  color: var(--soft-ink);
+  line-height: 1.55;
+  margin-top: 0.5rem;
+}
+
+.vialStandard {
+  background: var(--white);
+}
+
+.vialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vialItem h3 {
+  font-family: var(--font-cormorant);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.vialItem p {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.vialNote {
+  margin-top: 2rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+}
+
+.mark {
+  background: var(--cream);
+}
+
+.markText {
+  max-width: 640px;
+  color: var(--soft-ink);
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.faq {
+  background: var(--ivory);
+}
+
+.faqList {
+  margin-top: 2rem;
+}
+
+.faqItem {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.15);
+}
+
+.faqItem dt {
+  font-family: var(--font-cormorant);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.faqItem dd {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+}
+
+.verify {
+  background: var(--cream);
+}
+
+.verifyText {
+  color: var(--soft-ink);
+  margin-top: 0.75rem;
+}
+
+.shipping {
+  background: var(--ivory);
+}
+
+.shipGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.shipGrid h3 {
+  font-family: var(--font-cormorant);
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.shipGrid p {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  line-height: 1.6;
+}
+
+.ruo {
+  text-align: center;
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .badgeGrid,
+  .shipGrid,
+  .vialGrid {
+    grid-template-columns: 1fr;
+  }
+}

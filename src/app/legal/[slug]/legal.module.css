@@ -1,0 +1,9 @@
+.content {
+  max-width: 640px;
+}
+
+.content p {
+  color: var(--soft-ink);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}

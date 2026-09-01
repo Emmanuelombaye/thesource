@@ -1,0 +1,44 @@
+.hero {
+  padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
+  background: var(--ivory);
+}
+
+.centered .container {
+  text-align: center;
+  max-width: 680px;
+}
+
+.dark {
+  background: var(--noir);
+  color: var(--ivory);
+}
+
+.dark .subtitle {
+  color: rgba(253, 252, 248, 0.65);
+}
+
+.title {
+  font-family: var(--font-cormorant);
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 400;
+  margin-top: 0.875rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: var(--soft-ink);
+  margin-top: 1.25rem;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.left .container {
+  text-align: left;
+}
+
+.left .title,
+.left .subtitle,
+.left .container :global(.label) {
+  max-width: 640px;
+}

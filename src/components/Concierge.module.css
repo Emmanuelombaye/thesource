@@ -1,0 +1,88 @@
+.trigger {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 150;
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--ivory);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+  transition: background 0.2s;
+  min-height: var(--tap-min);
+}
+
+.trigger:hover {
+  background: var(--noir-soft);
+}
+
+.panel {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 151;
+  width: min(320px, calc(100vw - 3rem));
+  background: var(--ivory);
+  border: 1px solid rgba(190, 158, 86, 0.3);
+  padding: 1.5rem;
+  box-shadow: 0 16px 48px rgba(25, 19, 7, 0.12);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--soft-ink);
+  cursor: pointer;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+}
+
+.welcome {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.links a {
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.12);
+  min-height: var(--tap-min);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.links a:hover {
+  color: var(--gold);
+}
+
+.note {
+  font-size: 0.75rem;
+  color: var(--soft-ink);
+  margin-top: 1rem;
+}

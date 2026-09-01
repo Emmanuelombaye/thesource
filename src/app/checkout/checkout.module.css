@@ -1,0 +1,205 @@
+.title {
+  font-family: var(--font-cormorant);
+  font-size: 2.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.interimNote {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fieldset legend {
+  margin-bottom: 0.5rem;
+}
+
+.paymentNote {
+  font-size: 0.875rem;
+  color: var(--soft-ink);
+  margin-bottom: 0.75rem;
+}
+
+.paymentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.paymentOption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 1px solid rgba(190, 158, 86, 0.25);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.paymentOption input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.paymentActive {
+  border-color: var(--gold);
+  background: var(--cream);
+}
+
+.paymentLabel {
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.paymentDesc {
+  font-size: 0.75rem;
+  color: var(--soft-ink);
+  line-height: 1.4;
+}
+
+.ruoCheck {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.875rem;
+  color: var(--soft-ink);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.ruoCheck input {
+  margin-top: 0.25rem;
+  min-width: 18px;
+  min-height: 18px;
+  accent-color: var(--gold);
+}
+
+.summary {
+  position: sticky;
+  top: calc(var(--header-height) + 1rem);
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid rgba(190, 158, 86, 0.2);
+}
+
+.summaryList {
+  list-style: none;
+  margin-top: 1.25rem;
+}
+
+.summaryList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.1);
+  font-size: 0.875rem;
+}
+
+.summaryName {
+  display: block;
+  font-family: var(--font-cormorant);
+  font-size: 1rem;
+}
+
+.summaryMeta {
+  font-size: 0.75rem;
+  color: var(--soft-ink);
+}
+
+.totals {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.totals > div {
+  display: flex;
+  justify-content: space-between;
+  color: var(--soft-ink);
+}
+
+.grandTotal {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(190, 158, 86, 0.2);
+  font-family: var(--font-cormorant);
+  font-size: 1.25rem !important;
+  color: var(--ink) !important;
+}
+
+.priceNote {
+  font-size: 0.8125rem;
+  color: var(--soft-ink);
+  margin-top: 1rem;
+}
+
+.confirm {
+  max-width: 520px;
+  text-align: center;
+}
+
+.confirmTitle {
+  font-family: var(--font-cormorant);
+  font-size: 2.5rem;
+  margin-top: 0.75rem;
+}
+
+.confirmText {
+  color: var(--soft-ink);
+  line-height: 1.7;
+  margin: 1.25rem 0 2rem;
+}
+
+.ruo {
+  text-align: center;
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+  margin-top: 3rem;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+    order: -1;
+  }
+
+  .paymentGrid {
+    grid-template-columns: 1fr;
+  }
+}

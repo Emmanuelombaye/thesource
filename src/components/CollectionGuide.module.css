@@ -1,0 +1,111 @@
+.guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.18);
+}
+
+.chip {
+  min-height: var(--tap-min);
+  padding: 0 1.15rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid rgba(190, 158, 86, 0.35);
+  color: var(--soft-ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.chipActive {
+  border-color: var(--gold);
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.categoryIntro {
+  max-width: 640px;
+  margin-bottom: 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.18);
+}
+
+.categoryIntro p {
+  color: var(--soft-ink);
+  line-height: 1.75;
+  margin-top: 0.75rem;
+}
+
+.categoryCount {
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+  margin-top: 1rem !important;
+}
+
+.categoryLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.categoryLink {
+  min-height: var(--tap-min);
+  padding: 0 1rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--soft-ink);
+  border: 1px solid rgba(190, 158, 86, 0.35);
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.categoryLink:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+  background: var(--cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  scroll-margin-top: 8rem;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

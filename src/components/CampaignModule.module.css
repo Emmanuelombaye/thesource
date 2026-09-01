@@ -1,0 +1,122 @@
+/* Rhode — generous outer gutters, large campaign, single action */
+
+.wrap {
+  padding: 0 var(--gutter);
+  margin: clamp(2rem, 5vw, 4rem) 0;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  min-height: min(72vh, 760px);
+  background: var(--cream);
+  border: 1px solid rgba(190, 158, 86, 0.18);
+}
+
+.reverse {
+  grid-template-columns: 0.85fr 1.15fr;
+}
+
+.reverse .visual {
+  order: 2;
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 5rem);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 80%, rgba(230, 211, 163, 0.22) 0%, transparent 70%),
+    linear-gradient(165deg, var(--ivory) 0%, var(--cream) 100%);
+  min-height: 420px;
+}
+
+.visualFill {
+  padding: 0;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.visualFill img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 5rem);
+  max-width: 440px;
+}
+
+.title {
+  font-family: var(--font-cormorant);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 0.75rem;
+  line-height: 1.12;
+}
+
+.text {
+  font-size: 1.0625rem;
+  color: var(--soft-ink);
+  line-height: 1.75;
+  margin: 1.25rem 0 1.25rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.list li {
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .panel,
+  .reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .reverse .visual {
+    order: -1;
+  }
+
+  .visual {
+    min-height: 320px;
+    padding: 2.5rem;
+  }
+
+  .visualFill {
+    padding: 0;
+  }
+
+  .visualFill img {
+    min-height: 320px;
+  }
+
+  .copy {
+    max-width: none;
+    padding: 2.5rem 1.75rem 3rem;
+  }
+}

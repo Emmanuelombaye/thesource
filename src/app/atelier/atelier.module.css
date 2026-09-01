@@ -1,0 +1,42 @@
+.row {
+  background: var(--ivory);
+}
+
+.rowAlt {
+  background: var(--cream);
+}
+
+.rowTitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.drop {
+  scroll-margin-top: 8rem;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

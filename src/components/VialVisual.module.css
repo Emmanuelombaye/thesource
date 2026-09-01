@@ -1,0 +1,176 @@
+.vial {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.surface {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(190, 158, 86, 0.3), transparent);
+}
+
+.box {
+  position: absolute;
+  right: 5%;
+  bottom: 8%;
+  width: 55%;
+  aspect-ratio: 1.1;
+  background: var(--white);
+  border: 1px solid rgba(190, 158, 86, 0.35);
+  box-shadow: 0 8px 24px rgba(25, 19, 7, 0.06);
+  z-index: 1;
+}
+
+.boxLid {
+  height: 72%;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.boxMark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(190, 158, 86, 0.4);
+  padding: 0.75rem 1rem;
+  width: 100%;
+}
+
+.boxTs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxName {
+  font-family: var(--font-cinzel);
+  font-size: 0.4375rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+  color: var(--ink);
+}
+
+.boxLine {
+  font-family: var(--font-cinzel);
+  font-size: 0.3125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+  margin-top: 0.25rem;
+}
+
+.boxClasp {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--gold);
+  background: var(--cream);
+}
+
+.vialBody {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cap {
+  width: 28%;
+  height: 8px;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  border-radius: 1px 1px 0 0;
+}
+
+.glass {
+  width: 52px;
+  height: 100px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(248, 244, 236, 0.6) 50%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  border: 1px solid rgba(190, 158, 86, 0.2);
+  border-top: none;
+  position: relative;
+  box-shadow: inset -4px 0 12px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(25, 19, 7, 0.04);
+}
+
+.label {
+  position: absolute;
+  inset: 12% 8%;
+  background: var(--white);
+  border: 1px solid rgba(190, 158, 86, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  text-align: center;
+}
+
+.labelMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.labelName {
+  font-family: var(--font-cormorant);
+  font-size: 0.4375rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 2px;
+  line-height: 1.1;
+}
+
+.labelStrength {
+  font-family: var(--font-cinzel);
+  font-size: 0.3125rem;
+  letter-spacing: 0.05em;
+  color: var(--ivory);
+  background: var(--gold);
+  padding: 1px 4px;
+  margin-top: 3px;
+}
+
+.labelRuo {
+  font-family: var(--font-cinzel);
+  font-size: 0.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+  margin-top: 3px;
+}
+
+.lg .glass {
+  width: 64px;
+  height: 124px;
+}
+
+.lg .box {
+  width: 60%;
+}
+
+.sm .glass {
+  width: 40px;
+  height: 76px;
+}
+
+.sm .box {
+  width: 48%;
+}

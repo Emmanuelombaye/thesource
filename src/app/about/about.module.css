@@ -1,0 +1,49 @@
+.content {
+  max-width: 640px;
+}
+
+.prose p {
+  color: var(--soft-ink);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.quote {
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: var(--cream);
+  border-left: 2px solid var(--gold);
+}
+
+.quote p {
+  font-family: var(--font-cormorant);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.quote footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--soft-ink);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ruo {
+  text-align: center;
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+  padding: 1.5rem;
+  border-top: 1px solid rgba(190, 158, 86, 0.2);
+}

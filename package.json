@@ -1,0 +1,28 @@
+{
+  "name": "the-source",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "dev:win": "powershell -ExecutionPolicy Bypass -File dev.ps1",
+    "build": "next build",
+    "build:win": "powershell -ExecutionPolicy Bypass -File dev.ps1 build",
+    "start": "next start",
+    "lint": "next lint",
+    "sync-assets": "powershell -ExecutionPolicy Bypass -File scripts/sync-assets.ps1"
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}

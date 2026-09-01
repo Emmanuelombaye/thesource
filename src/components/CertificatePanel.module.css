@@ -1,0 +1,99 @@
+.panel {
+  background: var(--white);
+  border: 1px solid rgba(190, 158, 86, 0.35);
+  padding: 2rem 2rem 2.25rem;
+  position: relative;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: var(--gold-gradient);
+  opacity: 0.6;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.panelCode {
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--soft-ink);
+}
+
+.title {
+  font-family: var(--font-cormorant);
+  font-size: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1.5rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.12);
+  font-size: 0.9375rem;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row .label {
+  color: var(--soft-ink);
+}
+
+.row span:not(.label),
+.row a {
+  font-family: var(--font-jost);
+  color: var(--ink);
+}
+
+.documented {
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--soft-ink);
+  line-height: 1.65;
+  margin-top: 0.75rem;
+}
+
+.note a {
+  color: var(--deep-gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

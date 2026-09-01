@@ -1,0 +1,32 @@
+.intro {
+  max-width: 640px;
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.25);
+}
+
+.introTitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  color: var(--soft-ink);
+  line-height: 1.75;
+  margin-top: 0.75rem;
+}
+
+.intro .btn {
+  margin-top: 1.75rem;
+}
+
+.ruo {
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold) !important;
+  margin-top: 1.5rem !important;
+}
