@@ -1,63 +1,27 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useState } from "react";
 import styles from "./HeroFilm.module.css";
 
-export default function HeroFilm() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [paused, setPaused] = useState(false);
-  const [useVideo, setUseVideo] = useState(true);
-  const [useImage, setUseImage] = useState(true);
+/** Aesop editorial hero — generated still with live-site fallback */
+const HERO_STILL = "/brand/hero-editorial.jpg";
+const HERO_FALLBACK = "/brand/hero.jpg";
 
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) setPaused(true);
-  }, []);
+export default function HeroFilm() {
+  const [stillSrc, setStillSrc] = useState(HERO_STILL);
 
   return (
     <div className={styles.wrap} aria-hidden="true">
-      {useVideo ? (
-        <video
-          ref={videoRef}
-          className={styles.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/brand/hero.jpg"
-          onError={() => setUseVideo(false)}
-        >
-          <source src="/brand/hero.mp4" type="video/mp4" />
-        </video>
-      ) : useImage ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src="/brand/hero.jpg"
-          alt=""
-          className={styles.video}
-          onError={() => setUseImage(false)}
-        />
-      ) : (
-        <div className={styles.fallback} />
-      )}
-      <button
-        type="button"
-        className={styles.pause}
-        aria-label={paused ? "Play the hero film" : "Pause the hero film"}
-        onClick={() => {
-          const v = videoRef.current;
-          if (!v) return;
-          if (paused) {
-            void v.play();
-            setPaused(false);
-          } else {
-            v.pause();
-            setPaused(true);
-          }
-        }}
-      >
-        {paused ? "▶" : "❚❚"}
-      </button>
+      <Image
+        src={stillSrc}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className={styles.still}
+        onError={() => setStillSrc(HERO_FALLBACK)}
+      />
     </div>
   );
 }

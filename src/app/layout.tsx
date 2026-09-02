@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, Jost } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Concierge from "@/components/Concierge";
 import AgeGate from "@/components/AgeGate";
+import ClientOverlays from "@/components/ClientOverlays";
 import { CartProvider } from "@/context/CartContext";
 import "./globals.css";
 
@@ -61,11 +61,11 @@ export default function RootLayout({
       <body>
         <CartProvider>
           <AgeGate />
+          <ClientOverlays />
           <a href="#main-content" className="skip-link">Skip to content</a>
           <Header />
           <main id="main-content">{children}</main>
           <Footer />
-          <Concierge />
         </CartProvider>
       </body>
     </html>

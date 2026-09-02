@@ -5,7 +5,7 @@ const items = [
   {
     label: "What",
     title: "Research materials",
-    text: "Research compounds — The Collection, The Foundations Kit, and Atelier essentials.",
+    text: "Research compounds — The Collection, The Foundations Kit, and Atelier essentials. Clear identity, current documentation, and direct research support.",
     href: "/collection",
     action: "Explore the Collection",
   },

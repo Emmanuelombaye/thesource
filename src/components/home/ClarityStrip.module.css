@@ -1,5 +1,5 @@
 .strip {
-  padding: 3.5rem 0;
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: var(--white);
   border-top: 1px solid rgba(190, 158, 86, 0.12);
   border-bottom: 1px solid rgba(190, 158, 86, 0.12);

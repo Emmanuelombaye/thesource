@@ -29,7 +29,7 @@ export default async function CollectionPage({
         align="left"
       />
 
-      <section className="section">
+      <section className={`section ${styles.catalog}`}>
         <div className="container">
           <div className={styles.intro}>
             <p className="label label-gold">Category Introduction</p>

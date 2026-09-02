@@ -1,55 +1,52 @@
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  min-height: clamp(640px, 92vh, 920px);
+  min-height: clamp(640px, 92dvh, 920px);
+  display: grid;
+  align-items: end;
+  margin-top: calc(var(--header-height) * -1);
   padding-top: var(--header-height);
-  padding-bottom: clamp(2rem, 6vw, 4rem);
 }
 
 .heroScene {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: var(--ivory);
+  background: var(--cream);
 }
 
-.heroFade {
+.heroScrim {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 45%;
-  background: linear-gradient(180deg, transparent 0%, rgba(253, 252, 248, 0.85) 55%, var(--ivory) 100%);
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
+  background:
+    linear-gradient(105deg, rgba(253, 252, 248, 0.88) 0%, rgba(253, 252, 248, 0.55) 28%, rgba(253, 252, 248, 0.08) 52%, transparent 68%),
+    linear-gradient(0deg, rgba(25, 19, 7, 0.22) 0%, transparent 42%);
 }
 
-.heroInner {
+.heroContent {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 4rem) var(--gutter) clamp(2.5rem, 8vw, 5.5rem);
 }
 
 .heroCopy {
-  position: relative;
-  padding-bottom: 0;
-  max-width: min(960px, 100%);
-  text-align: center;
-  margin: 0 auto;
+  max-width: min(480px, 100%);
+  text-align: left;
+  margin: 0;
   color: var(--ink);
 }
 
 .heroTitle {
   font-family: var(--font-cormorant);
-  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-size: clamp(2.75rem, 6.5vw, 4.5rem);
   font-weight: 400;
   line-height: 1.05;
   margin-top: 0;
-  text-shadow: 0 1px 24px rgba(253, 252, 248, 0.65);
 }
 
 .heroTitle em {
@@ -66,22 +63,20 @@
 }
 
 .heroSub {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   color: var(--soft-ink);
-  margin-top: 1.25rem;
+  margin: 1.25rem 0 0;
   line-height: 1.75;
-  max-width: 480px;
+  max-width: 420px;
 }
 
-.heroAudience {
-  font-family: var(--font-cinzel);
-  font-size: 0.5625rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 1rem;
-  max-width: 480px;
-  line-height: 1.6;
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
 .heroVisualInner {
@@ -161,13 +156,8 @@
   }
 }
 
-.heroCtas {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
+.collection {
+  background: var(--ivory);
 }
 
 .pillars {
@@ -219,28 +209,20 @@
   line-height: 1.6;
 }
 
-.collectionIntro {
-  max-width: 640px;
+.collectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
   margin-bottom: 3rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(190, 158, 86, 0.25);
 }
 
-.collectionIntro .btn {
-  margin-top: 1.75rem;
-}
-
-.collectionGuideLabel {
-  margin-top: 1.5rem;
-}
-
-.collectionRuo {
-  font-family: var(--font-cinzel);
-  font-size: 0.5625rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 1.5rem;
+.collectionLead {
+  font-size: 1rem;
+  color: var(--soft-ink);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-top: 1rem;
 }
 
 .sectionTitle {
@@ -259,35 +241,46 @@
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.875rem, 1.5vw, 1.25rem);
+  align-items: stretch;
 }
 
 .invitation {
-  background: var(--noir);
-  color: var(--ivory);
+  background: var(--cream);
+  border-top: 1px solid rgba(190, 158, 86, 0.12);
+  border-bottom: 1px solid rgba(190, 158, 86, 0.12);
 }
 
 .invitationInner {
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto;
   text-align: center;
 }
 
-.invitation .sectionIntro {
-  color: rgba(253, 252, 248, 0.7);
+.invitationTitle {
+  font-family: var(--font-cormorant);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-top: 0.75rem;
+  line-height: 1.15;
+  color: var(--ink);
 }
 
-.invitationForm {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 2rem;
+.invitationAccent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.invitationIntro {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  line-height: 1.7;
+  margin-top: 1rem;
 }
 
 .invitationNote {
   font-size: 0.75rem;
-  color: rgba(253, 252, 248, 0.5);
+  color: var(--soft-ink);
   margin-top: 1rem;
 }
 
@@ -391,19 +384,29 @@
 }
 
 @media (max-width: 900px) {
+  .heroScrim {
+    background:
+      linear-gradient(180deg, rgba(253, 252, 248, 0.15) 0%, rgba(253, 252, 248, 0.72) 55%, rgba(253, 252, 248, 0.92) 100%);
+  }
+
+  .heroCopy {
+    max-width: none;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .heroCtas {
+    justify-content: center;
+  }
+
   .pillarGrid,
   .standardGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .heroCopy {
-    text-align: center;
-    margin: 0 auto;
-    max-width: min(960px, 100%);
-  }
-
-  .heroCtas {
-    justify-content: center;
+  .collectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .heroVisual {
@@ -421,5 +424,7 @@
   .standardGrid,
   .productGrid {
     grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-inline: auto;
   }
 }

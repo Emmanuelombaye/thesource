@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="rule-full" />
       <div className={`container ${styles.inner}`}>
         <div className={styles.brandCol}>
-          <Monogram size={32} />
+          <Monogram mode="monogram" variant="gold" size={40} />
           <p className={styles.brandName}>THE SOURCE</p>
           <p className={styles.brandYear}>MMXXVI</p>
           <p className={styles.brandDesc}>

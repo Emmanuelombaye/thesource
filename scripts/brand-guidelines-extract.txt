@@ -1,0 +1,370 @@
+﻿python.exe : Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+At C:\Users\user\AppData\Local\Temp\ps-script-ad6230af-0d9f-43c6-bd6c-5a1490c4cb47.ps1:112 char:62
++ ...  = "D:\dev\data\mise\installs\python\3.12.14\python.exe"; & $py -c @"
++                                                               ~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Could not get F...sed as 4 floats:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+Could not get FontBBox from font descriptor because None cannot be parsed as 4 floats
+PAGES: 22
+
+===== PAGE 1 =====
+
+EXISTING BRAND IDENTITY / WEBSITE REFERENCE
+Precision.
+Purity.
+Performance.
+THE DIRECTION Build from the identity already established on The Source website:
+warm ivory, gold, dark brown ink, classical typography, generous
+space, and restrained luxury.
+
+===== PAGE 2 =====
+
+ORIGINAL
+MARK
+/
+CURRENT
+ASSET
+
+===== PAGE 3 =====
+
+BRAND FOUNDATION
+Preserve the house. Make it easier to
+use.
+
+===== PAGE 4 =====
+
+EXISTING BRAND LINE
+"Precision. Purity. Performance."
+The website can improve clarity without replacing the identity Casey already built.
+Refined ivory and gold
+Classical Cinzel and Cormorant
+Discreet quiet spacing
+Precise thin rules and labels
+Established not reimagined
+
+===== PAGE 5 =====
+
+LOGO SYSTEM
+Use the house mark consistently.
+The gold TS monogram is the primary asset used on the current site and packaging. Pair it
+with the Cinzel wordmark treatment already visible in the navigation. Use monochrome
+versions only when production or contrast requires them.
+PRIMARY ASSET / ORIGINAL GOLD
+
+===== PAGE 6 =====
+
+SINGLE-COLOR TREATMENT / INK
+T H E S O U RC E
+PRECISION. PURITY. PERFORMANCE.
+REVERSED LOCKUP / DARK FIELD
+
+===== PAGE 7 =====
+
+T H E S O U RC E
+PRECISION. PURITY. PERFORMANCE.
+CURRENT SITE WORDMARK TREATMENT / CINZEL
+Keep clear space around the monogram equal to the width of its central stem. Do not redraw, stretch, crop, or replace the
+mark. The current site uses restrained metallic gradients for selected buttons and gold details. Keep those effects subtle and
+inside the existing gold range.
+
+===== PAGE 8 =====
+
+COLOR SYSTEM
+The live ivory, ink, and gold palette.
+IVORY CREAM
+#F8F4EC
+#FDFCF8
+Warm panels and quiet
+Primary page background contrast
+WHITE INK
+#FFFFFF #191307
+Cards and product fields Primary type and navigation
+SOFT INK GOLD
+
+===== PAGE 9 =====
+
+#5D5545 #BE9E56
+Secondary copy Primary brand accent
+DEEP GOLD GOLD LIGHT
+#E6D3A3
+#8A6D3B
+Highlights and gradient
+Links, rules, and depth midpoint
+Ivory is the default Gold carries the
+field. identity.
+Build most pages from Ivory, White, Ink, Use Gold and Deep Gold for the
+and Soft Ink. Cream creates quiet monogram, hairline rules, icons, labels,
+separation without introducing a new hue. and selected actions. Gold should
+punctuate the page, not flood it.
+
+===== PAGE 10 =====
+
+TYPOGRAPHY
+The current three-typeface system.
+DISPLAY / CORMORANT GARAMOND
+The
+Source.
+Use Cormorant Garamond for hero statements, section headlines, quotations, and editorial
+moments. Regular and italic carry the luxury tone already present on the site.
+BODY / JOST
+Research compounds presented with clear identity, current
+batch documentation, precise handling information, and
+direct support.
+Use light and regular weights for body copy. Use medium for controls. Preserve comfortable line height.
+
+===== PAGE 11 =====
+
+BRAND LABELS / CINZEL
+LOT 26A-041
+TESTED 18 AUG 2026
+ASSAY VERIFIED
+CERTIFICATE AVAILABLE
+Use Cinzel for the wordmark, navigation moments, Roman numerals, labels, and short uppercase statements. Keep
+the tracking wide.
+
+===== PAGE 12 =====
+
+LAYOUT REFERENCES
+Borrow structure. Keep The Source
+identity.
+These screenshots are composition references, not visual identities to copy. Use their
+strongest layout and commerce patterns with Casey's existing monogram, ivory and gold
+palette, Cinzel, Cormorant Garamond, Jost, photography, and house language.
+AESOP / EDITORIAL HIERARCHY
+Let one image carry the opening.
+
+===== PAGE 13 =====
+
+Borrow the full-width editorial hero and disciplined text placement.
+Borrow the clear split between utility links, primary navigation, and campaign content.
+Borrow the restrained outlined action and quiet carousel controls.
+Do not copy Aesop's palette, logo, type, product language, or exact creative.
+VIEW SOURCE SITE
+IMMORTALS / COLLECTION CLARITY
+Explain the category before the grid.
+Borrow the collection introduction, one primary action, and immediate product preview.
+Borrow the clear card hierarchy, category labels, and visible product imagery.
+Borrow the guided-selection concept only when its questions fit the approved research-use model.
+
+===== PAGE 14 =====
+
+Do not copy the blue palette, rounded capsule language, health claims, or recommendation copy.
+VIEW SOURCE SITE
+RHODE / CAMPAIGN FRAMING
+Use generous framing and very little chrome.
+Borrow the large campaign module, centered brand presence, and clean edge spacing.
+Borrow the minimal commerce navigation and single-action hero treatment.
+Borrow the rhythm of large imagery followed by compact product modules.
+Do not copy Rhode's colors, rounded containers, logo, celebrity imagery, or product styling.
+VIEW SOURCE SITE
+
+===== PAGE 16 =====
+
+INFORMATION DESIGN
+Carry the house identity into the
+certificate experience.
+This is a website component, not a new identity. It uses Casey's existing ivory, ink, gold,
+Cinzel, and Jost system to make batch information easier to scan.
+Use it on product pages and certificate results. It never displays invented data. Missing facts
+say "unavailable."
+THE SOURCE / VERIFIED MATERIAL TS-01
+Compound [verified name]
+Lot [lot ID]
+Tested [verified date]
+Assay Unavailable
+Certificate [document link]
+Storage [approved language]
+
+===== PAGE 17 =====
+
+WEBSITE TRANSLATION
+Evidence should be easier to find than
+persuasion.
+THE SOURCE CATALOG CERTIFICATES CART
+Research
+materials. Every
+batch accounted
+for.
+Clear identity, current documentation, and direct research
+support.
+Homepage hero
+State category, audience, and proof in the first screen.
+
+===== PAGE 18 =====
+
+AVAILABLE / DOCUMENTED
+[Compound name]
+[quantity] [price]
+Product card
+Keep amount, price, lot status, and certificate access visible.
+CERTIFICATE LOOKUP
+LOT [ID]
+STATUS DOCUMENTED
+TESTED [DATE]
+DOCUMENT VIEW PDF
+Certificate view
+Never hide the document beneath marketing or an accordion.
+
+===== PAGE 19 =====
+
+VOICE
+Keep the house language, then make
+it concrete.
+Write this Avoid this
+Use "The Collection," "The Standard," New slogans that compete with the
+"The Foundations," and "Atelier" as current tagline.
+established brand language.
+New colors, trendy typefaces, or a
+Pair atmosphere with facts such as clinical-blue redesign.
+"Certificate updated August 18, 2026."
+Dense luxury language where a product
+Keep "Precision. Purity. Performance." fact is needed.
+as the primary brand line.
+Benefit claims, outcomes, testing data,
+Use Casey's name and credentials only and credentials that are not verified.
+when the source material verifies them.
+
+===== PAGE 20 =====
+
+BUILDER HANDOFF
+Copy this prompt into the site build.
+Design and build a responsive ecommerce website for The Source, founded by Casey
+Christopher. Treat https://thesource.gold/ as the visual source of truth. Preserve the existing
+identity. Do not replace it with a new palette, new logo, or trend-driven redesign.
+BRAND FOUNDATION
+The existing brand line is "Precision. Purity. Performance." The brand feels private, refined,
+classical, and precise. Keep the established house vocabulary, including "The Collection,"
+"The Standard," "The Foundations," and "Atelier." Improve clarity and usability while
+making the finished site unmistakably The Source.
+REFERENCE SITES AND WHAT TO BORROW
+Use Aesop at https://www.aesop.com/ for editorial hierarchy: a full-width image-led hero,
+disciplined overlaid navigation, a clear utility layer, restrained outlined actions, and quiet
+carousel controls.
+Use the Immortals peptide collection at https://immortals.com/collections/peptides for
+commerce structure: explain the category before showing products, use a strong collection
+introduction, make product-card hierarchy obvious, and keep guided selection close to the
+catalog.
+Use Rhode at https://www.rhodeskin.com/ for campaign framing: generous outer gutters,
+a large image-led campaign module, centered brand presence, minimal commerce
+navigation, and a clean transition into product modules.
+Borrow only layout logic, spacing, hierarchy, and component behavior. Do not copy any
+reference site's logo, colors, typography, imagery, wording, health claims, corner-radius
+system, or distinctive branded artwork. Every borrowed pattern must be reskinned with The
+Source identity below.
+LOGO
+Use the existing gold TS monogram as the primary mark. Pair it with THE SOURCE set in
+Cinzel where the wordmark is needed. Preserve the mark's proportions and clear space. Do
+not redraw, crop, stretch, simplify, or replace it. Use the gold original on ivory and white
+fields. Use one-color ink or reversed white versions only where contrast or production
+
+===== PAGE 21 =====
+
+requires them.
+EXACT COLOR PALETTE
+Use the current production tokens from the live site:
+Ivory #FDFCF8 for the primary page background.
+Cream #F8F4EC for warm panels and quiet section contrast.
+White #FFFFFF for cards and clean product fields.
+Ink #191307 for primary type, navigation, and icons.
+Soft Ink #5D5545 for secondary copy.
+Gold #BE9E56 for the monogram, key rules, labels, and selected accents.
+Deep Gold #8A6D3B for links, borders, and darker gold details.
+Gold Light #E6D3A3 for highlights and the midpoint of restrained metallic treatments.
+Noir #120D07 and Noir Soft #1E1710 may be used for limited dark sections.
+Do not introduce blue, oxblood, cool gray, or another competing accent color.
+GOLD TREATMENT
+The live site uses a restrained metallic gradient for selected actions. When needed, use
+linear-gradient(105deg, #6B5329 0%, #8A6D3B 35%, #E6D3A3 50%, #8A6D3B 65%,
+#6B5329 100%). Keep it limited to high-value details and buttons. Do not cover large page
+areas with metallic effects.
+TYPOGRAPHY
+Use Cinzel for the wordmark, navigation moments, Roman numerals, labels, and short
+uppercase statements. Use Cormorant Garamond for hero statements, section headlines,
+quotations, and editorial moments. Use Jost for body copy, product information, forms,
+buttons, and utility text. Preserve the live site's wide tracking, light body weights, generous
+line height, and centered ceremonial moments. Keep longer informational copy left aligned
+for readability.
+LAYOUT AND DETAIL
+Use generous ivory negative space, thin gold hairline rules, small gold ornaments, centered
+display moments, and large editorial product photography. Buttons can use gold borders or
+the approved gold gradient. Corners should remain square or nearly square. Avoid
+rounded SaaS cards, glassmorphism, neon accents, heavy shadows, clinical blue, and
+generic dashboard styling.
+PHOTOGRAPHY
+Follow the current art direction: warm ivory and cream surfaces, white packaging, gold
+hardware, soft natural light, controlled shadows, and tactile materials. Product imagery
+should feel quiet and premium. Avoid generic laboratory stock, blue DNA imagery, lifestyle
+outcomes, smoke, or unrelated marble-and-gold luxury clichΘs.
+INFORMATION DESIGN
+
+===== PAGE 22 =====
+
+Make product and certificate information easier to find without changing the brand. A
+reusable certificate panel may show compound name, lot ID, tested date, verified assay
+result, certificate link, and approved storage language. Style it with Ivory, Ink, Gold, Cinzel,
+and Jost so it belongs to the current identity. Use only verified data. Show "Unavailable"
+when information is missing. Never invent a realistic placeholder.
+HOMEPAGE
+Preserve the established navigation and house structure where practical. The first screen
+should use the existing identity and clearly state what The Source offers, who it is for, and
+what proof is available. Include The Collection, The Foundations, The Standard, Atelier,
+certificate access, research support, and Casey's sourced founder story. Keep the
+experience elegant, but do not make visitors decode the offer.
+PRODUCT PAGE
+Keep the product name, amount, price, availability, current lot, and certificate access easy
+to find. Include approved specifications, handling information, testing method, laboratory
+identity, verified date, shipping, and support. Do not hide the certificate beneath
+promotional content.
+MOTION AND RESPONSIVE BEHAVIOR
+Use slow, restrained movement for hero imagery and small fades for editorial moments.
+Keep commerce interactions quick. Respect reduced-motion settings. On mobile, keep
+search, cart, product status, and certificate access within easy reach. Use 44px minimum
+tap targets and maintain WCAG AA contrast.
+COPY AND FACTS
+Keep "Precision. Purity. Performance." as the primary brand line. Use the existing house
+vocabulary, then support it with direct facts. Do not invent claims, outcomes, credentials,
+laboratory relationships, test results, testimonials, service levels, or product details.
+LEGAL BOUNDARY
+Do not write dosing guidance, personal protocols, symptom questions, body-outcome
+promises, or unapproved benefit-led categories. Product intent and research-use language
+require specialized legal review. A footer disclaimer does not correct contradictory
+merchandising or page copy.
+DELIVERABLE
+Produce accessible desktop and mobile designs for the homepage, collection, product
+detail, certificate lookup, The Standard, The Foundations, Atelier, about, support, cart, and
+legal templates. Include loading, empty, sold-out, unavailable-certificate, and validation-error
+states. The result should look like a more usable and complete version of Casey's current
+site, not a different brand.

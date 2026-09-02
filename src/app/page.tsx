@@ -5,7 +5,9 @@ import HeroFilm from "@/components/HeroFilm";
 import CampaignModule from "@/components/CampaignModule";
 import CampaignImage from "@/components/CampaignImage";
 import ClarityStrip from "@/components/home/ClarityStrip";
-import { CollectionCategoryLinks } from "@/components/CollectionGuide";
+import HomeCertificate from "@/components/home/HomeCertificate";
+import ResearchSupport from "@/components/home/ResearchSupport";
+import InvitationForm from "@/components/InvitationForm";
 import { collectionProducts, atelierProducts } from "@/data/products";
 import styles from "./page.module.css";
 
@@ -33,21 +35,23 @@ const foundationsCompounds = ["GLP3-R", "KLOW", "Adamax", "MOTS-C"];
 export default function HomePage() {
   return (
     <>
+      {/* Aesop — full-bleed editorial image; copy overlaid lower-left */}
       <section className={styles.hero}>
         <div className={styles.heroScene}>
           <HeroFilm />
         </div>
+        <div className={styles.heroScrim} aria-hidden="true" />
 
-        <div className={`container ${styles.heroInner}`}>
+        <div className={styles.heroContent}>
           <div className={styles.heroCopy}>
             <h1 className={`${styles.heroTitle} reveal`}>
               You found <em>The Source.</em>
             </h1>
             <p className={`${styles.heroTagline} reveal`}>Precision. Purity. Performance.</p>
+            <p className={`${styles.heroSub} reveal`}>
+              Research materials. Every batch accounted for.
+            </p>
             <div className={`${styles.heroCtas} reveal`}>
-              <Link href="/collection" className="btn">
-                Explore the Collection
-              </Link>
               <Link href="/the-foundations" className="btn-text">
                 The Foundations Kit
               </Link>
@@ -56,11 +60,11 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <ClarityStrip embedded />
         </div>
-
-        <div className={styles.heroFade} aria-hidden="true" />
       </section>
+
+      {/* PDF p.17 — what / who / proof, directly below the image hero */}
+      <ClarityStrip />
 
       <section className={styles.pillars}>
         <div className="container">
@@ -77,6 +81,30 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Immortals — title, short intro, product preview (live site order) */}
+      <section className={`section ${styles.collection}`}>
+        <div className="container">
+          <div className={styles.collectionHeader}>
+            <div>
+              <p className="label">The Collection</p>
+              <h2 className={styles.sectionTitle}>Held to one standard.</h2>
+              <p className={styles.collectionLead}>
+                One master vial governs the entire line — identity carried by the label,
+                consistency as the first form of trust.
+              </p>
+            </div>
+            <Link href="/collection" className="btn-text">View All</Link>
+          </div>
+
+          <div className={styles.productGrid}>
+            {collectionProducts.map((p, index) => (
+              <ProductCard key={p.slug} product={p} variant="grid" priority={index < 3} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Rhode — large campaign modules, then compact product rows */}
       <CampaignModule
         label="The Foundations Kit"
         title="Where the new habits begin."
@@ -112,50 +140,19 @@ export default function HomePage() {
         );
       })}
 
-      <section className={`section ${styles.collection}`}>
-        <div className="container">
-          <div className={styles.collectionIntro}>
-            <p className="label label-gold">The Collection</p>
-            <h2 className={styles.sectionTitle}>Held to one standard.</h2>
-            <p className={styles.sectionIntro}>
-              One master vial governs the entire line — the same clear glass, the same
-              brushed-gold cap, the same weight in the hand. Identity is carried by the
-              label. Consistency is the first form of trust.
-            </p>
-            <p className={styles.sectionIntro}>
-              Browse by category — metabolic, recovery, longevity, radiance, growth — or
-              open any card for amount, price, lot status, and certificate access.
-            </p>
-            <p className={styles.collectionRuo}>
-              For laboratory research use only. Not for human consumption.
-            </p>
-            <p className={`label ${styles.collectionGuideLabel}`}>Select a research focus</p>
-            <CollectionCategoryLinks />
-            <Link href="/collection" className="btn">
-              View The Collection
-            </Link>
-          </div>
-          <div className={styles.productGrid}>
-            {collectionProducts.map((p) => (
-              <ProductCard key={p.slug} product={p} variant="homepage" />
-            ))}
-          </div>
-        </div>
-      </section>
+      <HomeCertificate />
 
       <section className={`section ${styles.invitation}`} id="invitation">
         <div className="container">
           <div className={styles.invitationInner}>
             <p className="label label-gold">The Invitation</p>
-            <h2 className={styles.sectionTitle}>Twenty percent off your first order.</h2>
-            <p className={styles.sectionIntro}>
-              Join the house list for first sight of new compounds, batch certificates, and Drop 001.
+            <h2 className={styles.invitationTitle}>
+              20% off your <span className={styles.invitationAccent}>first order.</span>
+            </h2>
+            <p className={styles.invitationIntro}>
+              Join the house list — first sight of new compounds and batch certificates.
             </p>
-            <form className={styles.invitationForm} action="#" method="post">
-              <input type="text" className="input" placeholder="First name" aria-label="First name" />
-              <input type="email" className="input" placeholder="Email address" aria-label="Email address" required />
-              <button type="submit" className="btn">Claim 20% off</button>
-            </form>
+            <InvitationForm />
             <p className={styles.invitationNote}>One email when something matters. Never sold.</p>
           </div>
         </div>
@@ -182,6 +179,8 @@ export default function HomePage() {
           <Link href="/the-standard" className="btn" style={{ marginTop: "2rem" }}>The House</Link>
         </div>
       </section>
+
+      <ResearchSupport />
 
       <section className={styles.founder}>
         <div className="container">

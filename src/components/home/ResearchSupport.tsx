@@ -15,15 +15,17 @@ export default function ResearchSupport() {
             </p>
           </div>
           <div className={styles.actions}>
-            <a href="mailto:admin@thesource.gold" className="btn">
-              admin@thesource.gold
-            </a>
             <Link href="/support" className="btn">
               Client Advisor
             </Link>
-            <Link href="/certificates" className="btn">
-              COA &amp; Testing
-            </Link>
+            <div className={styles.secondary}>
+              <a href="mailto:admin@thesource.gold" className="btn-text">
+                admin@thesource.gold
+              </a>
+              <Link href="/certificates" className="btn-text">
+                COA &amp; Testing
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:win": "powershell -ExecutionPolicy Bypass -File dev.ps1",
+    "dev:clean": "powershell -ExecutionPolicy Bypass -File dev.ps1 clean && powershell -ExecutionPolicy Bypass -File dev.ps1",
     "build": "next build",
     "build:win": "powershell -ExecutionPolicy Bypass -File dev.ps1 build",
     "start": "next start",

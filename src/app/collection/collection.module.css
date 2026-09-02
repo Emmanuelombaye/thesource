@@ -30,3 +30,8 @@
   color: var(--gold) !important;
   margin-top: 1.5rem !important;
 }
+
+.catalog {
+  background: var(--ivory);
+  padding-top: 0;
+}

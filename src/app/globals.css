@@ -27,7 +27,7 @@
 
   --max-width: 1440px;
   --gutter: clamp(1.75rem, 7vw, 6rem);
-  --section-gap: clamp(5rem, 10vw, 8rem);
+  --section-gap: clamp(5.5rem, 11vw, 9rem);
   --tap-min: 44px;
   --header-height: 156px;
 }
@@ -164,6 +164,30 @@ h1, h2, h3, h4 {
   color: var(--ink);
 }
 
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: var(--tap-min);
+  padding: 0.875rem 2rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(138, 109, 59, 0.45);
+  background: var(--gold-gradient);
+  color: var(--ink);
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  text-decoration: none;
+}
+
+.btn-gold:hover {
+  opacity: 0.92;
+}
+
 .btn-text {
   border: none;
   padding: 0.5rem 0;
@@ -269,6 +293,7 @@ h1, h2, h3, h4 {
 }
 
 .btn:focus-visible,
+.btn-gold:focus-visible,
 .input:focus-visible,
 .navLink:focus-visible,
 .searchBtn:focus-visible {

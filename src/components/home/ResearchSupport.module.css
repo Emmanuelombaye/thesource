@@ -27,13 +27,15 @@
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  align-items: flex-start;
+  gap: 1.25rem;
   min-width: 220px;
 }
 
-.actions .btn {
-  width: 100%;
-  justify-content: center;
+.secondary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 @media (max-width: 768px) {

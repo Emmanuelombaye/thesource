@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Monogram from "./Monogram";
 import AnnouncementBar from "./AnnouncementBar";
 import SearchOverlay from "./SearchOverlay";
@@ -10,42 +10,34 @@ import CartDrawer from "./CartDrawer";
 import { useCart } from "@/context/CartContext";
 import styles from "./Header.module.css";
 
-const shopLinks = [
+const leftLinks = [
   { href: "/collection", label: "The Collection" },
   { href: "/certificates", label: "Certificates" },
 ];
 
-const primaryLinks = [
-  { href: "/the-foundations", label: "Foundations" },
+const rightLinks = [
+  { href: "/the-foundations", label: "The Foundations" },
   { href: "/the-standard", label: "The Standard" },
   { href: "/atelier", label: "Atelier" },
 ];
+
+const primaryLinks = [...leftLinks, ...rightLinks];
 
 export default function Header() {
   const pathname = usePathname();
   const { itemCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [shopOpen, setShopOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const shopRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === "/";
-  const shopActive =
-    pathname === "/collection" ||
-    pathname.startsWith("/product/") ||
-    pathname === "/certificates" ||
-    pathname.startsWith("/certificates/");
 
-  useEffect(() => {
-    function onPointerDown(e: MouseEvent) {
-      if (shopRef.current && !shopRef.current.contains(e.target as Node)) {
-        setShopOpen(false);
-      }
+  function isActive(href: string) {
+    if (href === "/collection") {
+      return pathname === "/collection" || pathname.startsWith("/product/");
     }
-    document.addEventListener("mousedown", onPointerDown);
-    return () => document.removeEventListener("mousedown", onPointerDown);
-  }, []);
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   return (
     <header className={`${styles.header} ${isHome ? styles.headerOverlay : ""}`}>
@@ -53,46 +45,32 @@ export default function Header() {
 
       <div className={styles.main}>
         <div className={`container ${styles.mainInner}`}>
-          <Link href="/" className={styles.brand} aria-label="The Source — home">
-            <Monogram mode="mark" size={56} />
-            <span className={styles.wordmark}>THE SOURCE</span>
-          </Link>
-
-          <nav className={styles.primaryNav} aria-label="Primary">
-            <div className={styles.navLinks} ref={shopRef}>
-              <div className={styles.shopWrap}>
-                <button
-                  type="button"
-                  className={`${styles.navLink} ${shopActive ? styles.active : ""}`}
-                  aria-expanded={shopOpen}
-                  aria-haspopup="true"
-                  onClick={() => setShopOpen(!shopOpen)}
-                >
-                  Shop
-                  <span className={styles.chevron} aria-hidden="true">▾</span>
-                </button>
-                {shopOpen && (
-                  <div className={styles.dropdown} role="menu">
-                    {shopLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        role="menuitem"
-                        className={pathname === link.href ? styles.active : ""}
-                        onClick={() => setShopOpen(false)}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {primaryLinks.map((link) => (
+          <nav className={styles.leftNav} aria-label="Primary left">
+            <div className={styles.navLinks}>
+              {leftLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`${styles.navLink} ${pathname === link.href ? styles.active : ""}`}
+                  className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+
+          <Link href="/" className={styles.brand} aria-label="The Source — home">
+            <Monogram mode="monogram" variant="gold" size={48} />
+            <span className={styles.wordmark}>THE SOURCE</span>
+          </Link>
+
+          <nav className={styles.rightNav} aria-label="Primary right">
+            <div className={styles.navLinks}>
+              {rightLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
                 >
                   {link.label}
                 </Link>
@@ -146,17 +124,11 @@ export default function Header() {
 
       {menuOpen && (
         <nav className={styles.mobileNav} aria-label="Mobile navigation">
-          <p className={styles.mobileSection}>Shop</p>
-          {shopLinks.map((link) => (
-            <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
-              {link.label}
-            </Link>
-          ))}
           {primaryLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={pathname === link.href ? styles.active : ""}
+              className={isActive(link.href) ? styles.active : ""}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}

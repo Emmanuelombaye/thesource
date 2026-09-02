@@ -42,9 +42,11 @@
 
 .visual {
   position: relative;
-  background: linear-gradient(165deg, var(--cream) 0%, var(--ivory) 100%);
+  background:
+    radial-gradient(ellipse 85% 55% at 50% 20%, rgba(248, 244, 236, 0.55) 0%, transparent 60%),
+    linear-gradient(180deg, #faf9f6 0%, var(--white) 50%);
   border: 1px solid rgba(190, 158, 86, 0.15);
-  min-height: 480px;
+  min-height: 520px;
   aspect-ratio: 4/5;
   overflow: hidden;
 }

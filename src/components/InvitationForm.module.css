@@ -1,0 +1,46 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.compact {
+  margin-top: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-jost);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--soft-ink);
+}
+
+.field input {
+  width: 100%;
+  padding: 0.5rem 0 0.75rem;
+  font-family: var(--font-jost);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(190, 158, 86, 0.35);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.field input:focus {
+  border-bottom-color: var(--gold);
+}
+
+.form :global(.btn-gold) {
+  width: 100%;
+  margin-top: 0.5rem;
+}

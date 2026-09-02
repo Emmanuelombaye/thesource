@@ -23,6 +23,7 @@ export default function AgeGate() {
     } catch {
       /* ignore */
     }
+    window.dispatchEvent(new Event("thesource-age-verified"));
     setVisible(false);
   }
 

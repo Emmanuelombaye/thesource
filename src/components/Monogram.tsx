@@ -25,7 +25,7 @@ export default function Monogram({
   variant = "gold",
   size = 48,
   className = "",
-  mode = "mark",
+  mode = "monogram",
 }: MonogramProps) {
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);

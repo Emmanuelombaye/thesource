@@ -2,7 +2,7 @@
 
 .wrap {
   padding: 0 var(--gutter);
-  margin: clamp(2rem, 5vw, 4rem) 0;
+  margin: clamp(3rem, 8vw, 6rem) 0;
 }
 
 .panel {

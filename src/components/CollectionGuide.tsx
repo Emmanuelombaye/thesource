@@ -91,8 +91,8 @@ export default function CollectionGuide({ products, initialCategory }: Collectio
       )}
 
       <div className={styles.grid} id="collection">
-        {filtered.map((product) => (
-          <ProductCard key={product.slug} product={product} />
+        {filtered.map((product, index) => (
+          <ProductCard key={product.slug} product={product} priority={index < 3} />
         ))}
       </div>
     </>
