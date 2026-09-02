@@ -88,6 +88,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: clamp(0.875rem, 1.5vw, 1.25rem);
   scroll-margin-top: 8rem;
   align-items: stretch;

@@ -13,7 +13,9 @@ export default function ScrollRow({ label, title, children }: ScrollRowProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: -1 | 1) => {
-    ref.current?.scrollBy({ left: dir * 280, behavior: "smooth" });
+    const card = ref.current?.querySelector("[data-carousel-card]") as HTMLElement | null;
+    const step = card ? card.offsetWidth + 20 : 300;
+    ref.current?.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
   return (

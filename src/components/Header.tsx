@@ -43,71 +43,68 @@ export default function Header() {
     <header className={`${styles.header} ${isHome ? styles.headerOverlay : ""}`}>
       <AnnouncementBar />
 
+      {/* Aesop / PDF — utility layer separated from primary nav */}
+      <div className={styles.utilityBar}>
+        <div className={`container ${styles.utilityInner}`}>
+          <span className={styles.utilityMark} aria-hidden="true">
+            Precision · Purity · Performance
+          </span>
+          <div className={styles.utilityNav}>
+            <button
+              type="button"
+              className={styles.utilityLink}
+              aria-label="Search the collection"
+              onClick={() => setSearchOpen(true)}
+            >
+              Search
+            </button>
+            <Link
+              href="/support"
+              className={`${styles.utilityLink} ${pathname === "/support" ? styles.active : ""}`}
+            >
+              Client Advisor
+            </Link>
+            <button
+              type="button"
+              className={styles.utilityLink}
+              aria-label={`Cart${itemCount > 0 ? `, ${itemCount} items` : ", empty"}`}
+              onClick={() => setCartOpen(true)}
+            >
+              Cart{itemCount > 0 ? ` (${itemCount})` : ""}
+            </button>
+          </div>
+        </div>
+      </div>
+
       <div className={styles.main}>
         <div className={`container ${styles.mainInner}`}>
           <nav className={styles.leftNav} aria-label="Primary left">
-            <div className={styles.navLinks}>
-              {leftLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            {leftLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           <Link href="/" className={styles.brand} aria-label="The Source — home">
-            <Monogram mode="monogram" variant="gold" size={48} />
+            <Monogram mode="monogram" variant="gold" size={44} />
             <span className={styles.wordmark}>THE SOURCE</span>
           </Link>
 
           <nav className={styles.rightNav} aria-label="Primary right">
-            <div className={styles.navLinks}>
-              {rightLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className={styles.utilityNav}>
-              <button
-                type="button"
-                className={styles.iconBtn}
-                aria-label="Search the collection"
-                onClick={() => setSearchOpen(true)}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M20 20L16.5 16.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </button>
+            {rightLinks.map((link) => (
               <Link
-                href="/support"
-                className={`${styles.navLink} ${pathname === "/support" ? styles.active : ""}`}
+                key={link.href}
+                href={link.href}
+                className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
               >
-                Client Advisor
+                {link.label}
               </Link>
-              <button
-                type="button"
-                className={styles.iconBtn}
-                aria-label={`Cart${itemCount > 0 ? `, ${itemCount} items` : ", empty"}`}
-                onClick={() => setCartOpen(true)}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 6h15l-1.5 9h-12L6 6z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-                  <path d="M6 6L5 3H2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                {itemCount > 0 && <span className={styles.cartBadge}>{itemCount}</span>}
-              </button>
-            </div>
+            ))}
           </nav>
 
           <button

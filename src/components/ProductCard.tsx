@@ -37,6 +37,7 @@ export default function ProductCard({ product, variant = "grid", priority = fals
   return (
     <article
       className={`${styles.card} ${styles[variant]} ${isCollectionGrid ? styles.collectionGrid : ""} ${isCollection ? styles.collectionCard : ""} ${isSoldOut ? styles.soldOut : ""}`}
+      data-carousel-card={isCarousel ? "" : undefined}
     >
       <Link href={`/product/${product.slug}`} className={styles.link}>
         <div className={`${styles.visual} ${isCollection ? styles.collectionVisual : ""}`}>

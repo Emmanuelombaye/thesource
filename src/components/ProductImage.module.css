@@ -33,7 +33,10 @@
 
 .atelier.card {
   object-position: center center;
-  padding: 1rem;
+  object-fit: contain;
+  padding: 1.25rem;
+  max-height: 92%;
+  max-width: 92%;
 }
 
 .detail {
