@@ -51,12 +51,15 @@ export default function HomePage() {
             <p className={`${styles.heroSub} reveal`}>
               Research materials. Every batch accounted for.
             </p>
+            <p className={`${styles.heroSubSecondary} reveal`}>
+              Clear identity, current documentation, and direct research support.
+            </p>
             <div className={`${styles.heroCtas} reveal`}>
               <Link href="/the-foundations" className="btn-text">
                 The Foundations Kit
               </Link>
               <Link href="/collection" className="btn-text">
-                Or build your own protocol
+                View The Collection
               </Link>
             </div>
           </div>

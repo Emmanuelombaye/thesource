@@ -10,7 +10,8 @@ interface ProductCardProps {
   priority?: boolean;
 }
 
-function availabilityLabel(product: Product): string {
+/** PDF p.18 — AVAILABLE / DOCUMENTED above compound name */
+function cardStatusLabel(product: Product): string {
   if (product.status === "sold_out") return "Sold Out";
   if (productHasCertificate(product)) return "Documented";
   return "Available";
@@ -31,7 +32,7 @@ export default function ProductCard({ product, variant = "grid", priority = fals
   const isCollectionGrid = isCollection && variant === "grid";
 
   const showPrice = !(isCarousel && isAtelier);
-  const statusLabel = availabilityLabel(product);
+  const statusLabel = cardStatusLabel(product);
 
   return (
     <article
@@ -42,30 +43,31 @@ export default function ProductCard({ product, variant = "grid", priority = fals
           {isCollectionGrid && product.categoryLabel && (
             <span className={styles.badge}>{product.categoryLabel}</span>
           )}
-          {isCollectionGrid && (
-            <span className={`${styles.statusFloat} ${hasCertificate ? styles.statusFloatGold : ""}`}>
-              {statusLabel}
-            </span>
-          )}
           <ProductImage product={product} priority={priority} />
         </div>
 
         <div className={styles.meta}>
           {isCollectionGrid ? (
             <>
+              <p
+                className={`${styles.cardStatus} ${isSoldOut ? styles.cardStatusMuted : hasCertificate ? styles.cardStatusGold : ""}`}
+              >
+                {statusLabel}
+              </p>
               <h3 className={styles.name}>{product.name}</h3>
-              <p className={styles.excerpt}>{excerpt(product.description)}</p>
               {showPrice && (
-                <div className={styles.facts}>
-                  <span>{product.amount}</span>
-                  <span className={styles.factSep} aria-hidden="true">·</span>
-                  <span>{product.price}</span>
-                  <span className={styles.factSep} aria-hidden="true">·</span>
-                  <span className={hasCertificate ? styles.factGold : undefined}>
-                    {hasCertificate ? "Certificate on file" : `Lot ${product.lotStatus}`}
-                  </span>
+                <div className={styles.priceRow}>
+                  <span className={styles.amount}>{product.amount}</span>
+                  <span className={styles.price}>{product.price}</span>
                 </div>
               )}
+              <p className={styles.excerpt}>{excerpt(product.description)}</p>
+              <div className={styles.proofRow}>
+                <span>Lot · {product.lotStatus}</span>
+                <span className={hasCertificate ? styles.certAvailable : styles.certMuted}>
+                  {hasCertificate ? "Certificate Available" : "Certificate · Unavailable"}
+                </span>
+              </div>
               <span className={styles.viewBtn}>
                 {!isSoldOut ? "View Compound" : "View Details"}
               </span>

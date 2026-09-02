@@ -17,7 +17,7 @@
   justify-content: center;
 }
 
-/* Immortals — large centered product, floating on dark field */
+/* Large centered vial — restrained shadow per PDF */
 .collection.card {
   object-position: center center;
   object-fit: contain;
@@ -27,8 +27,8 @@
   max-width: 280px;
   position: relative !important;
   inset: auto !important;
-  filter: drop-shadow(0 32px 44px rgba(0, 0, 0, 0.42))
-    drop-shadow(0 14px 24px rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 14px 22px rgba(25, 19, 7, 0.1))
+    drop-shadow(0 4px 8px rgba(25, 19, 7, 0.06));
 }
 
 .atelier.card {

@@ -70,6 +70,14 @@
   max-width: 420px;
 }
 
+.heroSubSecondary {
+  font-size: 0.9375rem;
+  color: var(--soft-ink);
+  margin: 0.5rem 0 0;
+  line-height: 1.7;
+  max-width: 440px;
+}
+
 .heroCtas {
   display: flex;
   flex-wrap: wrap;
