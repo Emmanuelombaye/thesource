@@ -7,6 +7,5 @@
 
 .still {
   object-fit: cover;
-  /* Product sits center-right; keep left third open for hero copy */
-  object-position: 58% 45%;
+  object-position: center 42%;
 }

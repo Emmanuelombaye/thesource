@@ -1,10 +1,9 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import ScrollRow from "@/components/ScrollRow";
-import HeroFilm from "@/components/HeroFilm";
+import HomeHero from "@/components/home/HomeHero";
 import CampaignModule from "@/components/CampaignModule";
 import CampaignImage from "@/components/CampaignImage";
-import ClarityStrip from "@/components/home/ClarityStrip";
 import HomeCertificate from "@/components/home/HomeCertificate";
 import ResearchSupport from "@/components/home/ResearchSupport";
 import InvitationForm from "@/components/InvitationForm";
@@ -35,39 +34,7 @@ const foundationsCompounds = ["GLP3-R", "KLOW", "Adamax", "MOTS-C"];
 export default function HomePage() {
   return (
     <>
-      {/* Aesop — full-bleed editorial image; copy overlaid lower-left */}
-      <section className={styles.hero}>
-        <div className={styles.heroScene}>
-          <HeroFilm />
-        </div>
-        <div className={styles.heroScrim} aria-hidden="true" />
-
-        <div className={styles.heroContent}>
-          <div className={styles.heroCopy}>
-            <h1 className={`${styles.heroTitle} reveal`}>
-              You found <em>The Source.</em>
-            </h1>
-            <p className={`${styles.heroTagline} reveal`}>Precision. Purity. Performance.</p>
-            <p className={`${styles.heroSub} reveal`}>
-              Research materials. Every batch accounted for.
-            </p>
-            <p className={`${styles.heroSubSecondary} reveal`}>
-              Clear identity, current documentation, and direct research support.
-            </p>
-            <div className={`${styles.heroCtas} reveal`}>
-              <Link href="/the-foundations" className="btn-text">
-                The Foundations Kit
-              </Link>
-              <Link href="/collection" className="btn-text">
-                View The Collection
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PDF p.17 — what / who / proof, directly below the image hero */}
-      <ClarityStrip />
+      <HomeHero />
 
       <section className={styles.pillars}>
         <div className="container">

@@ -6,16 +6,26 @@
   border-bottom: 1px solid rgba(190, 158, 86, 0.12);
 }
 
-.headerOverlay {
+/* Homepage — slim nav over hero; fixed so it persists on scroll */
+.headerHome {
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  background: rgba(253, 252, 248, 0.88);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(190, 158, 86, 0.15);
+  z-index: 300;
+  background: transparent;
+  border-bottom: none;
 }
 
-/* PDF / Aesop — utility layer above primary navigation */
+.headerHome .main {
+  background: rgba(253, 252, 248, 0.97);
+  border-bottom: 1px solid rgba(190, 158, 86, 0.18);
+}
+
+.headerHome .brand {
+  gap: 0;
+}
+
 .utilityBar {
   border-bottom: 1px solid rgba(190, 158, 86, 0.1);
 }
@@ -35,7 +45,7 @@
   font-size: 0.5rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--soft-ink);
+  color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -54,7 +64,7 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--soft-ink);
+  color: var(--ink);
   text-decoration: none;
   background: none;
   border: none;
@@ -76,29 +86,19 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  padding-top: 0.875rem;
-  padding-bottom: 0.875rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   position: relative;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-}
-
-.leftNav,
-.rightNav {
-  display: flex;
-  align-items: center;
-  gap: clamp(0.75rem, 1.8vw, 1.35rem);
-  min-width: 0;
+  gap: clamp(0.5rem, 1.5vw, 1.25rem);
 }
 
 .leftNav {
   grid-column: 1;
   justify-self: start;
-}
-
-.rightNav {
-  grid-column: 3;
-  justify-self: end;
-  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.65rem, 1.5vw, 1.25rem);
+  min-width: 0;
 }
 
 .brand {
@@ -113,6 +113,49 @@
   flex-shrink: 0;
 }
 
+.rightCluster {
+  grid-column: 3;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  min-width: 0;
+}
+
+.rightNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(0.65rem, 1.5vw, 1.25rem);
+  min-width: 0;
+}
+
+.homeUtility {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(190, 158, 86, 0.18);
+  flex-shrink: 0;
+}
+
+.homeUtilityLink {
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.homeUtilityLink:hover,
+.homeUtilityLink.active {
+  color: var(--gold);
+}
+
 .wordmark {
   font-family: var(--font-cinzel);
   font-size: 0.5625rem;
@@ -125,9 +168,9 @@
 
 .navLink {
   font-family: var(--font-cinzel);
-  font-size: clamp(0.4375rem, 0.72vw, 0.5rem);
+  font-size: clamp(0.5rem, 0.68vw, 0.5625rem);
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
@@ -141,6 +184,41 @@
 .navLink:hover,
 .navLink.active {
   color: var(--gold);
+}
+
+.iconBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.iconBtn:hover {
+  color: var(--gold);
+}
+
+.cartBadge {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  font-family: var(--font-jost);
+  font-size: 0.5rem;
+  font-weight: 500;
+  background: var(--gold);
+  color: var(--ivory);
 }
 
 .menuBtn {
@@ -168,6 +246,10 @@
   padding: 0 var(--gutter) 1.5rem;
   background: var(--ivory);
   border-bottom: 1px solid rgba(190, 158, 86, 0.15);
+}
+
+.headerHome .mobileNav {
+  background: rgba(253, 252, 248, 0.98);
 }
 
 .mobileNav a,
@@ -212,7 +294,8 @@
 @media (max-width: 1100px) {
   .utilityBar,
   .leftNav,
-  .rightNav {
+  .rightNav,
+  .homeUtility {
     display: none;
   }
 

@@ -1,0 +1,136 @@
+/* PDF + Aesop/Rhode — one image carries the opening; first screen states what/who/proof */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--cream);
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Light scrim — copy sits on solid ivory panel for WCAG contrast */
+.scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(253, 252, 248, 0.35) 0%, transparent 35%, rgba(25, 19, 7, 0.08) 100%);
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--header-home-height) + 2.5rem) var(--gutter) 2rem;
+  max-width: var(--max-width);
+}
+
+/* PDF ivory field — ink type reads clearly over editorial image */
+.copyPanel {
+  width: min(100%, 42rem);
+  padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 3.25rem);
+  background: var(--ivory);
+  border: 1px solid rgba(190, 158, 86, 0.32);
+  box-shadow: 0 18px 48px rgba(25, 19, 7, 0.06);
+}
+
+.mark {
+  margin-bottom: 1.25rem;
+}
+
+.eyebrow {
+  font-family: var(--font-cinzel);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--deep-gold);
+  margin-bottom: 1.35rem;
+}
+
+.title {
+  font-family: var(--font-cormorant);
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--ink);
+  max-width: 14ch;
+  margin-inline: auto;
+}
+
+.titleBreak {
+  display: block;
+  font-style: italic;
+  margin-top: 0.2em;
+}
+
+.lead {
+  font-family: var(--font-jost);
+  font-size: clamp(1rem, 1.5vw, 1.0625rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 36rem;
+  margin: 1.25rem auto 0;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  margin-top: 2rem;
+}
+
+.clarity {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  background: var(--ivory);
+  border-top: 1px solid rgba(190, 158, 86, 0.22);
+}
+
+@media (max-width: 768px) {
+  .copy {
+    padding-top: calc(var(--header-home-height) + 1.5rem);
+    align-items: stretch;
+  }
+
+  .copyPanel {
+    text-align: left;
+  }
+
+  .title {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .lead {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .ctas {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .mark,
+  .eyebrow {
+    align-self: flex-start;
+  }
+}

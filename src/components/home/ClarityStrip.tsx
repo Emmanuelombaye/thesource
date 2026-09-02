@@ -46,12 +46,17 @@ export default function ClarityStrip({ embedded = false }: ClarityStripProps) {
     </div>
   );
 
+  if (embedded) {
+    return (
+      <div className={styles.embedded} aria-label="What The Source offers">
+        {grid}
+      </div>
+    );
+  }
+
   return (
-    <section
-      className={`${styles.strip} ${embedded ? styles.embedded : ""}`}
-      aria-label="What The Source offers"
-    >
-      {embedded ? grid : <div className="container">{grid}</div>}
+    <section className={styles.strip} aria-label="What The Source offers">
+      <div className="container">{grid}</div>
     </section>
   );
 }
