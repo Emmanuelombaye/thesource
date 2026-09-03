@@ -1,8 +1,11 @@
+.guideWrap {
+  margin-bottom: 2rem;
+}
+
 .guide {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 2.5rem;
   padding-bottom: 1.75rem;
   border-bottom: 1px solid rgba(190, 158, 86, 0.18);
 }
@@ -20,6 +23,7 @@
   color: var(--soft-ink);
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .chip:hover {
@@ -84,7 +88,6 @@
   background: var(--cream);
 }
 
-/* Immortals — 3 equal tall columns, tight gutters */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -101,11 +104,42 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+  .guideWrap {
+    margin-inline: calc(var(--gutter) * -1);
+    margin-bottom: 1.5rem;
+  }
+
+  .guide {
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    padding: 0 var(--gutter) 1.25rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-bottom: 1px solid rgba(190, 158, 86, 0.18);
+  }
+
+  .guide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    flex: 0 0 auto;
+    padding: 0 1rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+  }
+
+  .categoryIntro {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
   .grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    max-width: 400px;
-    margin-inline: auto;
+    gap: 0.875rem;
+    max-width: none;
+    margin-inline: 0;
   }
 }

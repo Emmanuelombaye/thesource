@@ -1,27 +1,13 @@
-/** Verified media paths from thesource.gold */
+/** Exact product photos only — never reuse another compound’s label art. */
 export const productImages: Record<string, string> = {
-  "glp3-r": "/products-ts/glp3-r-30mg.png",
-  "glp3-r-10mg": "/products-ts/glp3-r-30mg.png",
-  "glp3-r-20mg": "/products-ts/glp3-r-30mg.png",
-  "glp3-r-30mg": "/products-ts/glp3-r-30mg.png",
-  "glp3-r-60mg": "/products-ts/glp3-r-30mg.png",
-  "bpc-157": "/products-ts/bpc-157-20mg.png",
-  "bpc-157-10mg": "/products-ts/bpc-157-20mg.png",
-  "bpc-157-20mg": "/products-ts/bpc-157-20mg.png",
-  tb500: "/products-ts/tb500-20mg.png",
-  "tb500-10mg": "/products-ts/tb500-20mg.png",
-  "tb500-20mg": "/products-ts/tb500-20mg.png",
-  "nad-plus": "/products-ts/nad-1000mg.png",
-  "nad-1000mg": "/products-ts/nad-1000mg.png",
-  glow: "/products-ts/glow-70mg.png",
-  "glow-70mg": "/products-ts/glow-70mg.png",
-  klow: "/products-ts/klow-80mg.png",
-  "klow-80mg": "/products-ts/klow-80mg.png",
-  "mots-c": "/products-ts/mots-c-40mg.png",
-  "mots-c-40mg": "/products-ts/mots-c-40mg.png",
-  tesamorelin: "/products-ts/tesamorelin-20mg.png",
-  "tesamorelin-10mg": "/products-ts/tesamorelin-20mg.png",
-  "tesamorelin-20mg": "/products-ts/tesamorelin-20mg.png",
+  "glp3-r-30mg": "/products-ts/glp3-r-30mg.webp",
+  "bpc-157-20mg": "/products-ts/bpc-157-20mg.webp",
+  "tb500-20mg": "/products-ts/tb500-20mg.webp",
+  "nad-1000mg": "/products-ts/nad-1000mg.webp",
+  "glow-70mg": "/products-ts/glow-70mg.webp",
+  "klow-80mg": "/products-ts/klow-80mg.webp",
+  "mots-c-40mg": "/products-ts/mots-c-40mg.webp",
+  "tesamorelin-20mg": "/products-ts/tesamorelin-20mg.webp",
   "foundations-kit": "/brand/kit-open.jpg",
   "monogram-tee": "/atelier/tee-1.png",
   "emblem-tee": "/atelier/tee-2.png",
@@ -41,22 +27,18 @@ export const productImages: Record<string, string> = {
   "challenge-coin": "/atelier/obj-coin.png",
 };
 
-const familyImages: [RegExp, string][] = [
-  [/^glp3-r/, "/products-ts/glp3-r-30mg.png"],
-  [/^glp2-t/, "/products-ts/glp3-r-30mg.png"],
-  [/^bpc/, "/products-ts/bpc-157-20mg.png"],
-  [/^tb500/, "/products-ts/tb500-20mg.png"],
-  [/^nad/, "/products-ts/nad-1000mg.png"],
-  [/^glow/, "/products-ts/glow-70mg.png"],
-  [/^klow/, "/products-ts/klow-80mg.png"],
-  [/^mots-c/, "/products-ts/mots-c-40mg.png"],
-  [/^tesamorelin/, "/products-ts/tesamorelin-20mg.png"],
-];
+/** Legacy short slugs → the exact dose photo we hold for that compound. */
+const legacyAliases: Record<string, string> = {
+  "glp3-r": "/products-ts/glp3-r-30mg.webp",
+  "bpc-157": "/products-ts/bpc-157-20mg.webp",
+  tb500: "/products-ts/tb500-20mg.webp",
+  "nad-plus": "/products-ts/nad-1000mg.webp",
+  glow: "/products-ts/glow-70mg.webp",
+  klow: "/products-ts/klow-80mg.webp",
+  "mots-c": "/products-ts/mots-c-40mg.webp",
+  tesamorelin: "/products-ts/tesamorelin-20mg.webp",
+};
 
 export function getProductImage(slug: string): string | undefined {
-  if (productImages[slug]) return productImages[slug];
-  for (const [re, src] of familyImages) {
-    if (re.test(slug)) return src;
-  }
-  return undefined;
+  return productImages[slug] ?? legacyAliases[slug];
 }

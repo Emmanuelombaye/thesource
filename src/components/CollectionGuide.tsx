@@ -56,19 +56,21 @@ export default function CollectionGuide({ products, initialCategory }: Collectio
 
   return (
     <>
-      <div className={styles.guide} role="tablist" aria-label="Filter by category">
-        {collectionFilters.map((filter) => (
-          <button
-            key={filter}
-            type="button"
-            role="tab"
-            aria-selected={active === filter}
-            className={`${styles.chip} ${active === filter ? styles.chipActive : ""}`}
-            onClick={() => selectCategory(filter)}
-          >
-            {filter}
-          </button>
-        ))}
+      <div className={styles.guideWrap}>
+        <div className={styles.guide} role="tablist" aria-label="Filter by category">
+          {collectionFilters.map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              role="tab"
+              aria-selected={active === filter}
+              className={`${styles.chip} ${active === filter ? styles.chipActive : ""}`}
+              onClick={() => selectCategory(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
       </div>
 
       {categoryMeta && (
@@ -76,7 +78,7 @@ export default function CollectionGuide({ products, initialCategory }: Collectio
           <p className="label label-gold">{categoryMeta.label}</p>
           <p>{categoryMeta.intro}</p>
           <p className={styles.categoryCount}>
-            {filtered.length} {filtered.length === 1 ? "compound" : "compounds"} in this category
+            {filtered.length} {filtered.length === 1 ? "item" : "items"} in this focus
           </p>
         </div>
       )}
@@ -85,23 +87,23 @@ export default function CollectionGuide({ products, initialCategory }: Collectio
         <div className={styles.categoryIntro}>
           <p className="label label-gold">Guided Selection</p>
           <p>
-            Select a research focus above — metabolic, recovery, longevity, radiance, growth, stacks, or research — to
-            view compounds held to one standard within that category.
+            Choose a focus above to narrow The Collection, or browse all materials with amount,
+            price, lot status, and certificate status on every card.
           </p>
         </div>
       )}
 
       <div className={styles.grid} id="collection">
         {filtered.map((product, index) => (
-          <ProductCard key={product.slug} product={product} priority={index < 3} />
+          <ProductCard key={product.slug} product={product} priority={index < 2} />
         ))}
       </div>
 
       {filtered.length === 0 && (
         <StateMessage
           type="empty"
-          title="No compounds in this category"
-          message="Try another research focus, or view the full Collection."
+          title="No items in this focus"
+          message="Try another focus, or view the full Collection."
           actionLabel="View All"
           actionHref="/collection"
         />

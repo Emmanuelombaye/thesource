@@ -4,48 +4,49 @@ export interface CollectionCategory {
   intro: string;
 }
 
+/** Navigation filters (Immortals structure) — not clinical claims. */
 export const collectionCategories: CollectionCategory[] = [
   {
     id: "Metabolic",
     label: "Metabolic",
     intro:
-      "Research compounds held to one master standard for metabolic pathway studies in qualified laboratory settings.",
+      "Materials listed under this focus. Open any card for amount, price, lot status, and certificate status.",
   },
   {
     id: "Recovery",
     label: "Recovery",
     intro:
-      "Recovery-category materials from The Collection — same vial, same cap, same specification run to run.",
+      "Materials listed under this focus. Open any card for amount, price, lot status, and certificate status.",
   },
   {
     id: "Longevity",
     label: "Longevity",
     intro:
-      "Longevity-category compounds supplied for laboratory research, with lot status and documentation on every card.",
+      "Materials listed under this focus. Open any card for amount, price, lot status, and certificate status.",
   },
   {
     id: "Radiance",
     label: "Radiance",
     intro:
-      "Radiance-category research materials — identity carried by the label, consistency as the first form of trust.",
+      "Materials listed under this focus. Open any card for amount, price, lot status, and certificate status.",
   },
   {
     id: "Growth",
     label: "Growth",
     intro:
-      "Growth-category compounds from The Collection. Open any card for amount, price, and certificate access.",
+      "Materials listed under this focus. Open any card for amount, price, lot status, and certificate status.",
   },
   {
     id: "Stacks",
     label: "Stacks",
     intro:
-      "Bundled research materials studied together under one order — amounts, prices, and certificate access on every card.",
+      "Bundles and stacks from the public catalog. Open any card for amount, price, lot status, and certificate status.",
   },
   {
     id: "Research",
     label: "Research",
     intro:
-      "Additional research materials from The Collection, held to the same master vial standard.",
+      "Additional materials from The Collection. Open any card for amount, price, lot status, and certificate status.",
   },
 ];
 

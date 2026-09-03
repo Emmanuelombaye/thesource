@@ -17,11 +17,6 @@ function cardStatusLabel(product: Product): string {
   return "Available";
 }
 
-function excerpt(text: string, max = 110): string {
-  if (text.length <= max) return text;
-  return `${text.slice(0, max).trimEnd()}…`;
-}
-
 export default function ProductCard({ product, variant = "grid", priority = false }: ProductCardProps) {
   const isSoldOut = product.status === "sold_out";
   const isCollection = product.category === "collection";
@@ -62,7 +57,6 @@ export default function ProductCard({ product, variant = "grid", priority = fals
                   <span className={styles.price}>{product.price}</span>
                 </div>
               )}
-              <p className={styles.excerpt}>{excerpt(product.description)}</p>
               <div className={styles.proofRow}>
                 <span>Lot · {product.lotStatus}</span>
                 <span className={hasCertificate ? styles.certAvailable : styles.certMuted}>

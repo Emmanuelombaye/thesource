@@ -13,26 +13,50 @@ export default function HeroFilm() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [stillSrc, setStillSrc] = useState(HERO_STILL);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [allowFilm, setAllowFilm] = useState(false);
   const [filmReady, setFilmReady] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mqNarrow = window.matchMedia("(max-width: 700px)");
+    const connection = (
+      typeof navigator !== "undefined"
+        ? (navigator as Navigator & {
+            connection?: EventTarget & {
+              saveData?: boolean;
+              effectiveType?: string;
+            };
+          }).connection
+        : undefined
+    );
+
     const update = () => {
-      const reduced = mq.matches;
+      const reduced = mqMotion.matches;
       setReduceMotion(reduced);
-      if (reduced) {
+      const saveData = Boolean(connection?.saveData);
+      const slowNet = /2g/.test(connection?.effectiveType ?? "");
+      const useFilm = !reduced && !mqNarrow.matches && !saveData && !slowNet;
+      setAllowFilm(useFilm);
+      if (!useFilm) {
         videoRef.current?.pause();
         setFilmReady(false);
       }
     };
+
     update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
+    mqMotion.addEventListener("change", update);
+    mqNarrow.addEventListener("change", update);
+    connection?.addEventListener("change", update);
+    return () => {
+      mqMotion.removeEventListener("change", update);
+      mqNarrow.removeEventListener("change", update);
+      connection?.removeEventListener("change", update);
+    };
   }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || reduceMotion) return;
+    if (!video || !allowFilm) return;
 
     video.playbackRate = 0.55;
     const play = () => {
@@ -47,7 +71,7 @@ export default function HeroFilm() {
     else video.addEventListener("canplay", play, { once: true });
 
     return () => video.removeEventListener("canplay", play);
-  }, [reduceMotion]);
+  }, [allowFilm]);
 
   return (
     <div
@@ -61,10 +85,11 @@ export default function HeroFilm() {
         fill
         priority
         sizes="100vw"
+        quality={75}
         className={styles.still}
         onError={() => setStillSrc(HERO_EDITORIAL)}
       />
-      {!reduceMotion && (
+      {allowFilm && (
         <video
           ref={videoRef}
           className={`${styles.film} ${filmReady ? styles.filmVisible : ""}`}
@@ -72,7 +97,7 @@ export default function HeroFilm() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster={HERO_STILL}
           onError={() => setFilmReady(false)}
         />

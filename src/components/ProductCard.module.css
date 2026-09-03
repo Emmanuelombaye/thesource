@@ -347,33 +347,62 @@
 
 @media (max-width: 1100px) {
   .collectionGrid {
-    min-height: clamp(440px, 48vw, 500px);
+    min-height: clamp(420px, 48vw, 480px);
   }
 }
 
 @media (max-width: 768px) {
   .collectionGrid {
-    min-height: 420px;
+    min-height: 0;
   }
 
   .collectionGrid .visual {
-    flex-basis: 58%;
+    flex: 0 0 auto;
+    aspect-ratio: 4 / 5;
+    min-height: 240px;
+    padding: 1.25rem 1rem 0.75rem;
+  }
+
+  .collectionGrid .meta {
+    padding: 1rem 1.15rem 1.15rem;
+  }
+
+  .collectionGrid .name {
+    font-size: 1.35rem;
+  }
+
+  .proofRow {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.85rem;
+  }
+
+  .viewBtn {
+    margin-top: 1rem;
   }
 
   .carousel {
-    flex-basis: 240px;
-    width: 240px;
+    flex-basis: min(240px, 72vw);
+    width: min(240px, 72vw);
     height: 360px;
   }
 
   .carousel .visual {
-    flex-basis: 240px;
+    flex-basis: min(240px, 72vw);
   }
 }
 
 @media (max-width: 600px) {
   .collectionGrid {
-    min-height: 400px;
+    min-height: 0;
+  }
+
+  .badge {
+    font-size: 0.4375rem;
+  }
+
+  .cardStatus {
+    font-size: 0.5rem;
   }
 }
 

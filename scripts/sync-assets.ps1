@@ -17,6 +17,7 @@ $paths = @(
   "products-ts/klow-80mg.png",
   "products-ts/mots-c-40mg.png",
   "products-ts/tesamorelin-20mg.png",
+  "brand/hero-editorial.jpg",
   "atelier/tee-1.png",
   "atelier/tee-2.png",
   "atelier/tee-3.png",
@@ -82,6 +83,12 @@ if (Test-Path $logoMark) {
       Write-Host "LINK $alias <- brand/logo-mark.png"
     }
   }
+}
+
+# Compress product vials to WebP for the Collection
+$node = "D:\nodejs\node.exe"
+if (Test-Path $node) {
+  & $node (Join-Path $PSScriptRoot "optimize-assets.js")
 }
 
 if ($ok -eq 0) { exit 1 }

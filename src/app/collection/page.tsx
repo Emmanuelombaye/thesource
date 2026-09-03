@@ -25,7 +25,7 @@ export default async function CollectionPage({
       <PageHero
         label="The Collection"
         title="Held to one standard."
-        subtitle="Research compounds supplied strictly for laboratory research — the full public catalog, with amount, price, lot status, and certificate access on every card."
+        subtitle="Research compounds supplied strictly for laboratory research. Amount, price, lot status, and certificate status on every card."
         align="left"
       />
 
