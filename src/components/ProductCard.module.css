@@ -42,7 +42,7 @@
   padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem) 0.5rem;
   background:
     radial-gradient(ellipse 78% 68% at 50% 38%, rgba(253, 252, 248, 0.95) 0%, transparent 72%),
-    linear-gradient(180deg, #f3efe6 0%, var(--cream) 100%);
+    linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
   border-bottom: 1px solid rgba(190, 158, 86, 0.12);
 }
 

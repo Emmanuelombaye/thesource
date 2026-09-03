@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Monogram from "./Monogram";
 import AnnouncementBar from "./AnnouncementBar";
 import SearchOverlay from "./SearchOverlay";
@@ -10,21 +10,17 @@ import CartDrawer from "./CartDrawer";
 import { useCart } from "@/context/CartContext";
 import styles from "./Header.module.css";
 
-/** Equal visual weight around the lockup — two house links each side */
-const leftLinks = [
+/** PDF p.17 — THE SOURCE · Collection · Certificates · Cart; house pages in primary. */
+const primaryLinks = [
   { href: "/collection", label: "The Collection" },
   { href: "/the-foundations", label: "The Foundations" },
-];
-
-const rightLinks = [
   { href: "/the-standard", label: "The Standard" },
   { href: "/atelier", label: "Atelier" },
 ];
 
 const mobileLinks = [
-  ...leftLinks,
-  ...rightLinks,
   { href: "/certificates", label: "Certificates" },
+  ...primaryLinks,
   { href: "/support", label: "Client Advisor" },
 ];
 
@@ -37,6 +33,17 @@ export default function Header() {
 
   const isHome = pathname === "/";
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   function isActive(href: string) {
     if (href === "/collection") {
       return pathname === "/collection" || pathname.startsWith("/product/");
@@ -46,37 +53,8 @@ export default function Header() {
 
   return (
     <header className={`${styles.header} ${isHome ? styles.headerHome : ""}`}>
-      <div className={styles.mast}>
+      <div className={styles.ribbon}>
         <AnnouncementBar />
-        <div className={styles.utility}>
-          <button
-            type="button"
-            className={styles.utilityLink}
-            onClick={() => setSearchOpen(true)}
-          >
-            Search
-          </button>
-          <Link
-            href="/certificates"
-            className={`${styles.utilityLink} ${isActive("/certificates") ? styles.utilityActive : ""}`}
-          >
-            Certificates
-          </Link>
-          <Link
-            href="/support"
-            className={`${styles.utilityLink} ${pathname === "/support" ? styles.utilityActive : ""}`}
-          >
-            Client Advisor
-          </Link>
-          <button
-            type="button"
-            className={styles.utilityLink}
-            aria-label={`Cart${itemCount > 0 ? `, ${itemCount} items` : ", empty"}`}
-            onClick={() => setCartOpen(true)}
-          >
-            Cart{itemCount > 0 ? ` (${itemCount})` : ""}
-          </button>
-        </div>
       </div>
 
       <div className={styles.main}>
@@ -92,25 +70,13 @@ export default function Header() {
             <span />
           </button>
 
-          <nav className={styles.leftNav} aria-label="Primary left">
-            {leftLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
           <Link href="/" className={styles.brand} aria-label="The Source — home">
-            <Monogram mode="monogram" variant="gold" size={isHome ? 52 : 56} />
+            <Monogram mode="monogram" variant="gold" size={32} priority />
             <span className={styles.wordmark}>THE SOURCE</span>
           </Link>
 
-          <nav className={styles.rightNav} aria-label="Primary right">
-            {rightLinks.map((link) => (
+          <nav className={styles.primary} aria-label="Primary">
+            {primaryLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -120,6 +86,26 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+
+          <div className={styles.utility}>
+            <button type="button" className={styles.utilityLink} onClick={() => setSearchOpen(true)}>
+              Search
+            </button>
+            <Link
+              href="/certificates"
+              className={`${styles.utilityLink} ${isActive("/certificates") ? styles.utilityActive : ""}`}
+            >
+              Certificates
+            </Link>
+            <button
+              type="button"
+              className={styles.utilityLink}
+              aria-label={`Cart${itemCount > 0 ? `, ${itemCount} items` : ", empty"}`}
+              onClick={() => setCartOpen(true)}
+            >
+              Cart{itemCount > 0 ? ` (${itemCount})` : ""}
+            </button>
+          </div>
 
           <div className={styles.mobileActions}>
             <button

@@ -2,11 +2,11 @@ import Link from "next/link";
 import HeroFilm from "@/components/HeroFilm";
 import styles from "./HomeHero.module.css";
 
-/** PDF p.17 — homepage hero wireframe: headline + subline; first screen states what / who / proof */
+/** PDF p.17 — first screen states category, audience, and proof */
 const proof = [
-  { label: "What", text: "Research materials" },
-  { label: "Who", text: "Qualified laboratory research" },
-  { label: "Proof", text: "Batch certificates on request" },
+  { label: "What", text: "Research materials — The Collection, held to one standard." },
+  { label: "Who", text: "Qualified laboratory research. Not for human consumption." },
+  { label: "Proof", text: "Batch documentation and certificate lookup on request." },
 ];
 
 export default function HomeHero() {
@@ -28,10 +28,10 @@ export default function HomeHero() {
             Clear identity, current documentation, and direct research support.
           </p>
           <div className={styles.ctas}>
-            <Link href="/collection" className="btn">
+            <Link href="/collection" className={`btn ${styles.ctaPrimary}`}>
               View The Collection
             </Link>
-            <Link href="/the-foundations" className="btn-text">
+            <Link href="/the-foundations" className={`btn-text ${styles.ctaSecondary}`}>
               The Foundations Kit
             </Link>
           </div>

@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  /* PDF — clear space around the mark ≈ the central stem */
   padding: 12%;
   box-sizing: content-box;
 }
@@ -19,16 +18,4 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: contain;
-  opacity: 0;
-}
-
-.pngVisible {
-  opacity: 1;
-}
-
-.placeholder {
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(190, 158, 86, 0.35);
-  background: var(--cream);
 }

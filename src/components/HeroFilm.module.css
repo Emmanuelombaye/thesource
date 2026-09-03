@@ -5,7 +5,52 @@
   background: var(--cream);
 }
 
-.still {
+.still,
+.film {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center 42%;
+}
+
+@media (max-width: 900px) {
+  .still,
+  .film {
+    object-position: center 32%;
+  }
+}
+
+.still {
+  z-index: 0;
+}
+
+.wrap[data-motion="still"] .still {
+  animation: drift 36s ease-in-out infinite alternate;
+}
+
+.film {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.filmVisible {
+  opacity: 1;
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.07) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrap[data-motion] .still {
+    animation: none;
+  }
 }

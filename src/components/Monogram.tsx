@@ -6,11 +6,11 @@ import styles from "./Monogram.module.css";
 
 interface MonogramProps {
   variant?: "gold" | "ink" | "white";
-  /** Height in px — width follows brand mark ratio */
   size?: number;
   className?: string;
-  /** TS square monogram vs vertical logo mark (live site header) */
   mode?: "monogram" | "mark";
+  /** Load immediately — use in the header so the gold TS never flashes as an empty box */
+  priority?: boolean;
 }
 
 const monogramSrc = {
@@ -26,10 +26,10 @@ export default function Monogram({
   size = 48,
   className = "",
   mode = "monogram",
+  priority = false,
 }: MonogramProps) {
-  const [loaded, setLoaded] = useState(false);
-  const [failed, setFailed] = useState(false);
   const [index, setIndex] = useState(0);
+  const [failed, setFailed] = useState(false);
 
   const candidates = mode === "mark" ? ["/brand/logo-mark.png", ...monogramSrc[variant]] : monogramSrc[variant];
   const height = size;
@@ -48,11 +48,10 @@ export default function Monogram({
           alt=""
           width={width}
           height={height}
-          className={`${styles.png} ${loaded ? styles.pngVisible : ""}`}
-          onLoad={() => setLoaded(true)}
+          priority={priority}
+          className={styles.png}
           onError={() => {
             if (index < candidates.length - 1) {
-              setLoaded(false);
               setIndex(index + 1);
             } else {
               setFailed(true);
@@ -60,7 +59,6 @@ export default function Monogram({
           }}
         />
       )}
-      {(!loaded || failed) && <span className={styles.placeholder} aria-hidden="true" />}
     </span>
   );
 }

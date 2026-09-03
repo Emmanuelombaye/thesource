@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 300;
-  background: rgba(26, 24, 22, 0.45);
+  background: rgba(25, 19, 7, 0.45);
   border: none;
   cursor: pointer;
 }
