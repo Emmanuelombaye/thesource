@@ -7,7 +7,7 @@ import CampaignImage from "@/components/CampaignImage";
 import HomeCertificate from "@/components/home/HomeCertificate";
 import ResearchSupport from "@/components/home/ResearchSupport";
 import InvitationForm from "@/components/InvitationForm";
-import { collectionProducts, atelierProducts } from "@/data/products";
+import { atelierProducts, getFeaturedCollectionProducts } from "@/data/products";
 import styles from "./page.module.css";
 
 const pillars = [
@@ -32,6 +32,8 @@ const atelierRows = [
 const foundationsCompounds = ["GLP3-R", "KLOW", "Adamax", "MOTS-C"];
 
 export default function HomePage() {
+  const featured = getFeaturedCollectionProducts();
+
   return (
     <>
       <HomeHero />
@@ -67,7 +69,7 @@ export default function HomePage() {
           </div>
 
           <div className={styles.productGrid}>
-            {collectionProducts.map((p, index) => (
+            {featured.map((p, index) => (
               <ProductCard key={p.slug} product={p} variant="grid" priority={index < 3} />
             ))}
           </div>

@@ -10,6 +10,7 @@ import {
   normalizeCollectionCategory,
 } from "@/lib/collectionCategories";
 import ProductCard from "./ProductCard";
+import StateMessage from "./StateMessage";
 import styles from "./CollectionGuide.module.css";
 
 interface CollectionGuideProps {
@@ -84,7 +85,7 @@ export default function CollectionGuide({ products, initialCategory }: Collectio
         <div className={styles.categoryIntro}>
           <p className="label label-gold">Guided Selection</p>
           <p>
-            Select a research focus above — metabolic, recovery, longevity, radiance, or growth — to
+            Select a research focus above — metabolic, recovery, longevity, radiance, growth, stacks, or research — to
             view compounds held to one standard within that category.
           </p>
         </div>
@@ -95,6 +96,16 @@ export default function CollectionGuide({ products, initialCategory }: Collectio
           <ProductCard key={product.slug} product={product} priority={index < 3} />
         ))}
       </div>
+
+      {filtered.length === 0 && (
+        <StateMessage
+          type="empty"
+          title="No compounds in this category"
+          message="Try another research focus, or view the full Collection."
+          actionLabel="View All"
+          actionHref="/collection"
+        />
+      )}
     </>
   );
 }

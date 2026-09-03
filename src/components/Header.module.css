@@ -1,4 +1,4 @@
-/* PDF bar — full logo, readable ink, solid home bar for contrast */
+/* PDF bar — Aesop overlay on home, solid ivory after scroll / other pages */
 
 .header {
   position: sticky;
@@ -8,19 +8,25 @@
   overflow: visible;
 }
 
-/* Solid ivory on home so links never wash out over the hero */
+/* Overlay the hero without glassmorphism — opaque-enough ivory wash + ink type */
 .headerHome {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 300;
-  background: var(--ivory);
+  background: transparent;
   padding-top: env(safe-area-inset-top, 0px);
   overflow: visible;
 }
 
 .headerHome .main {
+  background: rgba(253, 252, 248, 0.94);
+  border-bottom: 1px solid rgba(190, 158, 86, 0.16);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.headerHomeSolid .main {
   background: var(--ivory);
   border-bottom: 1px solid rgba(190, 158, 86, 0.18);
 }
@@ -225,6 +231,10 @@
   border-bottom: 1px solid rgba(190, 158, 86, 0.15);
   max-height: calc(100dvh - 80px - env(safe-area-inset-top, 0px));
   overflow-y: auto;
+}
+
+.headerHome .mobileNav {
+  background: rgba(253, 252, 248, 0.98);
 }
 
 .mobileNav a {

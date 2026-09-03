@@ -35,6 +35,18 @@ export const collectionCategories: CollectionCategory[] = [
     intro:
       "Growth-category compounds from The Collection. Open any card for amount, price, and certificate access.",
   },
+  {
+    id: "Stacks",
+    label: "Stacks",
+    intro:
+      "Bundled research materials studied together under one order — amounts, prices, and certificate access on every card.",
+  },
+  {
+    id: "Research",
+    label: "Research",
+    intro:
+      "Additional research materials from The Collection, held to the same master vial standard.",
+  },
 ];
 
 export const collectionFilters = ["All", ...collectionCategories.map((c) => c.id)];

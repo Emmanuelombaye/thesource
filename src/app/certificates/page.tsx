@@ -14,7 +14,7 @@ export default function CertificatesPage() {
       <PageHero
         label="Verification"
         title="Verify your vial."
-        subtitle="Enter the lot or report number from your label. Where the laboratory recorded one, its certificate opens straight away; otherwise the house will confirm the record within 24 hours."
+        subtitle="Enter the lot or report number from your label. Where the laboratory recorded one, its certificate opens straight away; otherwise the house will confirm the record within 24 hours. Missing facts say Unavailable — never invented."
       />
 
       <section className="section">

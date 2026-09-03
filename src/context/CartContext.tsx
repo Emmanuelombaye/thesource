@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Product } from "@/data/products";
+import { getProductBySlug, resolveProductSlug } from "@/data/products";
 import { productIsPurchasable } from "@/lib/cart";
 
 export interface CartItem {
@@ -36,7 +37,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setItems(JSON.parse(stored));
+      if (stored) {
+        const parsed = JSON.parse(stored) as CartItem[];
+        const refreshed = parsed
+          .map((item) => {
+            const product = getProductBySlug(resolveProductSlug(item.product.slug));
+            if (!product) return null;
+            return { product, quantity: item.quantity };
+          })
+          .filter((item): item is CartItem => Boolean(item));
+        setItems(refreshed);
+      }
     } catch {
       /* ignore */
     }

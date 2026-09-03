@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { useCart } from "@/context/CartContext";
 import { cartTotalWithDiscounts, formatPrice, lineTotal } from "@/lib/cart";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
+import StateMessage from "./StateMessage";
 import styles from "./CartDrawer.module.css";
 
 interface CartDrawerProps {
@@ -39,7 +40,9 @@ export default function CartDrawer({ open, onClose }: CartDrawerProps) {
         </div>
 
         {items.length === 0 ? (
-          <p className={styles.empty}>Your selection is empty.</p>
+          <div className={styles.empty}>
+            <StateMessage type="empty" />
+          </div>
         ) : (
           <>
             <ul className={styles.list}>

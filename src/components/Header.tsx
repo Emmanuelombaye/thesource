@@ -39,6 +39,7 @@ export default function Header() {
   const [houseOpen, setHouseOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const [homeSolid, setHomeSolid] = useState(false);
   const houseRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === "/";
@@ -50,6 +51,19 @@ export default function Header() {
     setMenuOpen(false);
     setHouseOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!isHome) {
+      setHomeSolid(false);
+      return;
+    }
+    function onScroll() {
+      setHomeSolid(window.scrollY > 48);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -77,7 +91,9 @@ export default function Header() {
   }
 
   return (
-    <header className={`${styles.header} ${isHome ? styles.headerHome : ""}`}>
+    <header
+      className={`${styles.header} ${isHome ? styles.headerHome : ""} ${isHome && homeSolid ? styles.headerHomeSolid : ""}`}
+    >
       {!isHome && (
         <div className={styles.ribbon}>
           <AnnouncementBar />

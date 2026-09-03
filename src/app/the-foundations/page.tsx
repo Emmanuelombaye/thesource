@@ -11,7 +11,19 @@ export const metadata: Metadata = {
   description: "The Foundations Kit — four compounds studied together.",
 };
 
-const kitCompounds = ["GLP3-R", "KLOW", "Adamax", "MOTS-C"];
+const kitCompounds = [
+  { label: "GLP3-R", match: /^GLP3-R$/i },
+  { label: "KLOW", match: /^KLOW$/i },
+  { label: "Adamax", match: /^Adamax$/i },
+  { label: "MOTS-C", match: /^MOTS-C$/i },
+];
+
+function findKitProduct(label: string, match: RegExp) {
+  return (
+    collectionProducts.find((p) => match.test(p.name) && !/bundle|kit|stack/i.test(p.slug)) ??
+    collectionProducts.find((p) => match.test(p.name))
+  );
+}
 
 export default function FoundationsPage() {
   return (
@@ -38,16 +50,19 @@ export default function FoundationsPage() {
                 The Collection — clear glass, brushed-gold cap, matte label.
               </p>
               <ul className={styles.compounds}>
-                {kitCompounds.map((c) => (
-                  <li key={c}>
-                    <span>{c}</span>
-                    {collectionProducts.find((p) => p.name === c) && (
-                      <Link href={`/product/${collectionProducts.find((p) => p.name === c)!.slug}`}>
-                        View →
-                      </Link>
-                    )}
-                  </li>
-                ))}
+                {kitCompounds.map(({ label, match }) => {
+                  const product = findKitProduct(label, match);
+                  return (
+                    <li key={label}>
+                      <span>{label}</span>
+                      {product && (
+                        <Link href={`/product/${product.slug}`}>
+                          View →
+                        </Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
               <div className={styles.actions}>
                 <Link href="/product/foundations-kit" className="btn">

@@ -23,6 +23,9 @@ export default function CheckoutPage() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
 
   const totals = cartTotalWithDiscounts(items);
 
@@ -44,6 +47,7 @@ export default function CheckoutPage() {
           <h1 className={styles.confirmTitle}>Thank you.</h1>
           <p className={styles.confirmText}>
             Your order <strong>{orderNumber}</strong> has been received.
+            {name.trim() && <> Confirmation will go to {name.trim()}.</>}
             {payment !== "card" && (
               <> Send payment via {paymentOptions.find((p) => p.id === payment)?.label} with your order number in the memo. Your order ships once payment is received.</>
             )}
@@ -59,11 +63,22 @@ export default function CheckoutPage() {
     e.preventDefault();
     setError("");
 
+    if (!name.trim()) {
+      setError("Enter your full name to continue.");
+      return;
+    }
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setError("Enter a valid email address.");
+      return;
+    }
+    if (!address.trim()) {
+      setError("Enter a shipping address.");
+      return;
+    }
     if (!ruoConfirmed) {
       setError("Please confirm the research-use policy to continue.");
       return;
     }
-
     if (!totals) {
       setError("Some items have unavailable pricing. Contact admin@thesource.gold to complete your order.");
       return;
@@ -89,12 +104,42 @@ export default function CheckoutPage() {
         </p>
 
         <div className={styles.layout}>
-          <form className={styles.form} onSubmit={handleSubmit} noValidate>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <fieldset className={styles.fieldset}>
               <legend className="label">Contact</legend>
-              <input type="text" name="name" className="input" placeholder="Full name" required aria-label="Full name" />
-              <input type="email" name="email" className="input" placeholder="Email address" required aria-label="Email address" />
-              <input type="text" name="address" className="input" placeholder="Shipping address" required aria-label="Shipping address" />
+              <input
+                type="text"
+                name="name"
+                className="input"
+                placeholder="Full name"
+                required
+                aria-label="Full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                autoComplete="name"
+              />
+              <input
+                type="email"
+                name="email"
+                className="input"
+                placeholder="Email address"
+                required
+                aria-label="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+              />
+              <input
+                type="text"
+                name="address"
+                className="input"
+                placeholder="Shipping address"
+                required
+                aria-label="Shipping address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                autoComplete="street-address"
+              />
             </fieldset>
 
             <fieldset className={styles.fieldset}>
@@ -130,7 +175,11 @@ export default function CheckoutPage() {
               </span>
             </label>
 
-            {error && <p className="error-text" role="alert">{error}</p>}
+            {error && (
+              <div role="alert">
+                <StateMessage type="validation-error" title="Please check your entry" message={error} />
+              </div>
+            )}
 
             <button type="submit" className="btn" disabled={submitting}>
               {submitting ? "Placing order…" : "Place Order"}

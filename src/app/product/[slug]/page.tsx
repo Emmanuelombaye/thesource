@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { getProductBySlug, productHasCertificate } from "@/data/products";
+import { getProductBySlug, productHasCertificate, certificateDatabase } from "@/data/products";
 import { productIsPurchasable } from "@/lib/cart";
 import ProductImage from "@/components/ProductImage";
 import CertificatePanel from "@/components/CertificatePanel";
@@ -35,6 +35,12 @@ export default function ProductPage() {
   const isSoldOut = product.status === "sold_out";
   const hasCertificate = productHasCertificate(product);
   const canPurchase = productIsPurchasable(product);
+  const certificateRecord =
+    certificateDatabase.find(
+      (c) =>
+        c.status === "documented" &&
+        c.compound.toLowerCase() === product.name.toLowerCase()
+    ) ?? null;
 
   const specRows: { label: string; value: string }[] = [
     { label: "Availability", value: isSoldOut ? "Sold Out" : "Available" },
@@ -144,7 +150,17 @@ export default function ProductPage() {
           </div>
 
           <div className={styles.certBlock}>
-            <CertificatePanel unavailable lotId={undefined} />
+            {hasCertificate && certificateRecord ? (
+              <CertificatePanel record={certificateRecord} />
+            ) : (
+              <StateMessage
+                type="certificate-unavailable"
+                title="Certificate Unavailable"
+                message="No verified lot record is published for this compound yet. Use certificate lookup with the lot on your label, or contact the house."
+                actionLabel="Verify Lot"
+                actionHref="/certificates"
+              />
+            )}
           </div>
 
           <div className={styles.specs}>
