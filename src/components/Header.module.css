@@ -148,7 +148,8 @@
 .housePanel {
   position: absolute;
   top: calc(100% + 0.5rem);
-  left: 0;
+  left: auto;
+  right: 0;
   min-width: 14rem;
   padding: 0.4rem 0;
   background: var(--ivory);

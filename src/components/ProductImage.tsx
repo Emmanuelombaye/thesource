@@ -20,45 +20,35 @@ export default function ProductImage({ product, size = "card", priority = false 
   const isDetail = size === "detail";
 
   if (!src || failed) {
-    return <VialVisual product={product} size={isDetail ? "lg" : "sm"} />;
-  }
-
-  const className = `${styles.img} ${isDetail ? styles.detail : styles.card} ${isCollection ? styles.collection : styles.atelier}`;
-  const sizes = isDetail
-    ? "(max-width: 768px) 92vw, 520px"
-    : isCollection
-      ? "(max-width: 600px) 88vw, (max-width: 1100px) 42vw, 300px"
-      : "(max-width: 768px) 45vw, 260px";
-
-  if (isCollection && !isDetail) {
     return (
-      <div className={styles.collectionWrap}>
-        <Image
-          src={src}
-          alt={`${product.name} ${product.amount}`}
-          fill
-          className={className}
-          sizes={sizes}
-          priority={priority}
-          loading={priority ? undefined : "lazy"}
-          quality={75}
-          onError={() => setFailed(true)}
-        />
+      <div className={`${styles.frame} ${isDetail ? styles.frameDetail : styles.frameCard}`}>
+        <VialVisual product={product} size={isDetail ? "lg" : "sm"} />
       </div>
     );
   }
 
+  const className = `${styles.img} ${isDetail ? styles.detail : styles.card} ${isCollection ? styles.collection : styles.atelier}`;
+  const sizes = isDetail
+    ? "(max-width: 768px) 92vw, 560px"
+    : isCollection
+      ? "(max-width: 600px) 88vw, (max-width: 1100px) 42vw, 300px"
+      : "(max-width: 768px) 45vw, 260px";
+
   return (
-    <Image
-      src={src}
-      alt={`${product.name} ${product.amount}`}
-      fill
-      className={className}
-      sizes={sizes}
-      priority={priority}
-      loading={priority ? undefined : "lazy"}
-      quality={isDetail ? 80 : 75}
-      onError={() => setFailed(true)}
-    />
+    <div
+      className={`${styles.frame} ${isDetail ? styles.frameDetail : styles.frameCard} ${isCollection && !isDetail ? styles.frameCollection : ""}`}
+    >
+      <Image
+        src={src}
+        alt={`${product.name}${product.amount && product.amount !== "—" ? ` ${product.amount}` : ""}`}
+        fill
+        className={className}
+        sizes={sizes}
+        priority={priority}
+        loading={priority ? undefined : "lazy"}
+        quality={isDetail ? 80 : 75}
+        onError={() => setFailed(true)}
+      />
+    </div>
   );
 }
