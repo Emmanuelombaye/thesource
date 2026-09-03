@@ -22,8 +22,10 @@ export default function Footer() {
             <ul>
               <li><Link href="/about">Our Story</Link></li>
               <li><Link href="/the-foundations">The Foundations</Link></li>
+              <li><Link href="/the-standard">The Standard</Link></li>
               <li><Link href="/atelier">Atelier</Link></li>
               <li><Link href="/collection">The Collection</Link></li>
+              <li><Link href="/certificates">Certificates</Link></li>
             </ul>
           </nav>
           <nav aria-label="Client Services">

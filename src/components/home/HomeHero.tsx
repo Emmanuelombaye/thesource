@@ -2,11 +2,26 @@ import Link from "next/link";
 import HeroFilm from "@/components/HeroFilm";
 import styles from "./HomeHero.module.css";
 
-/** PDF p.17 — first screen states category, audience, and proof */
+/**
+ * PDF p.17 — homepage hero wireframe + first screen what / who / proof
+ * Aesop — one image carries the opening; Rhode — single action
+ */
 const proof = [
-  { label: "What", text: "Research materials — The Collection, held to one standard." },
-  { label: "Who", text: "Qualified laboratory research. Not for human consumption." },
-  { label: "Proof", text: "Batch documentation and certificate lookup on request." },
+  {
+    label: "What",
+    text: "Research materials from The Collection.",
+    href: "/collection",
+  },
+  {
+    label: "Who",
+    text: "Qualified laboratory research. Not for human consumption.",
+    href: "/legal/research-use",
+  },
+  {
+    label: "Proof",
+    text: "Batch documentation and certificate lookup.",
+    href: "/certificates",
+  },
 ];
 
 export default function HomeHero() {
@@ -31,9 +46,6 @@ export default function HomeHero() {
             <Link href="/collection" className={`btn ${styles.ctaPrimary}`}>
               View The Collection
             </Link>
-            <Link href="/the-foundations" className={`btn-text ${styles.ctaSecondary}`}>
-              The Foundations Kit
-            </Link>
           </div>
         </div>
 
@@ -41,7 +53,9 @@ export default function HomeHero() {
           {proof.map((item) => (
             <li key={item.label} className={styles.proofItem}>
               <span className={styles.proofLabel}>{item.label}</span>
-              <span className={styles.proofText}>{item.text}</span>
+              <Link href={item.href} className={styles.proofText}>
+                {item.text}
+              </Link>
             </li>
           ))}
         </ul>

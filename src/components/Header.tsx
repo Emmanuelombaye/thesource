@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Monogram from "./Monogram";
 import AnnouncementBar from "./AnnouncementBar";
 import SearchOverlay from "./SearchOverlay";
@@ -10,17 +10,25 @@ import CartDrawer from "./CartDrawer";
 import { useCart } from "@/context/CartContext";
 import styles from "./Header.module.css";
 
-/** PDF p.17 — THE SOURCE · Collection · Certificates · Cart; house pages in primary. */
+/**
+ * PDF p.17 exact bar:
+ * THE SOURCE · CATALOG · CERTIFICATES · CART
+ * Catalog → The Collection. Search = Aesop utility. House pages under The House (p.22).
+ */
 const primaryLinks = [
   { href: "/collection", label: "The Collection" },
+  { href: "/certificates", label: "Certificates" },
+];
+
+const houseLinks = [
   { href: "/the-foundations", label: "The Foundations" },
   { href: "/the-standard", label: "The Standard" },
   { href: "/atelier", label: "Atelier" },
 ];
 
 const mobileLinks = [
-  { href: "/certificates", label: "Certificates" },
   ...primaryLinks,
+  ...houseLinks,
   { href: "/support", label: "Client Advisor" },
 ];
 
@@ -28,13 +36,19 @@ export default function Header() {
   const pathname = usePathname();
   const { itemCount } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [houseOpen, setHouseOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const houseRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === "/";
+  const houseActive = houseLinks.some(
+    (l) => pathname === l.href || pathname.startsWith(`${l.href}/`)
+  );
 
   useEffect(() => {
     setMenuOpen(false);
+    setHouseOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -43,6 +57,17 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (!houseOpen) return;
+    function onPointerDown(e: MouseEvent) {
+      if (houseRef.current && !houseRef.current.contains(e.target as Node)) {
+        setHouseOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onPointerDown);
+    return () => document.removeEventListener("mousedown", onPointerDown);
+  }, [houseOpen]);
 
   function isActive(href: string) {
     if (href === "/collection") {
@@ -53,12 +78,14 @@ export default function Header() {
 
   return (
     <header className={`${styles.header} ${isHome ? styles.headerHome : ""}`}>
-      <div className={styles.ribbon}>
-        <AnnouncementBar />
-      </div>
+      {!isHome && (
+        <div className={styles.ribbon}>
+          <AnnouncementBar />
+        </div>
+      )}
 
       <div className={styles.main}>
-        <div className={`container ${styles.mainInner}`}>
+        <div className={`container ${styles.bar}`}>
           <button
             type="button"
             className={`${styles.menuBtn} ${menuOpen ? styles.menuBtnOpen : ""}`}
@@ -71,46 +98,68 @@ export default function Header() {
           </button>
 
           <Link href="/" className={styles.brand} aria-label="The Source — home">
-            <Monogram mode="monogram" variant="gold" size={32} priority />
+            <Monogram mode="monogram" variant="gold" size={42} priority />
             <span className={styles.wordmark}>THE SOURCE</span>
           </Link>
 
-          <nav className={styles.primary} aria-label="Primary">
+          <nav className={styles.nav} aria-label="Primary">
             {primaryLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${styles.navLink} ${isActive(link.href) ? styles.active : ""}`}
+                className={`${styles.link} ${isActive(link.href) ? styles.active : ""}`}
               >
                 {link.label}
               </Link>
             ))}
-          </nav>
 
-          <div className={styles.utility}>
-            <button type="button" className={styles.utilityLink} onClick={() => setSearchOpen(true)}>
-              Search
-            </button>
-            <Link
-              href="/certificates"
-              className={`${styles.utilityLink} ${isActive("/certificates") ? styles.utilityActive : ""}`}
-            >
-              Certificates
-            </Link>
             <button
               type="button"
-              className={styles.utilityLink}
+              className={styles.link}
               aria-label={`Cart${itemCount > 0 ? `, ${itemCount} items` : ", empty"}`}
               onClick={() => setCartOpen(true)}
             >
               Cart{itemCount > 0 ? ` (${itemCount})` : ""}
+            </button>
+
+            <div className={styles.house} ref={houseRef}>
+              <button
+                type="button"
+                className={`${styles.link} ${houseActive ? styles.active : ""}`}
+                aria-expanded={houseOpen}
+                aria-haspopup="true"
+                onClick={() => setHouseOpen((o) => !o)}
+              >
+                The House
+              </button>
+              {houseOpen && (
+                <div className={styles.housePanel} role="menu">
+                  {houseLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      role="menuitem"
+                      className={`${styles.houseItem} ${isActive(link.href) ? styles.active : ""}`}
+                      onClick={() => setHouseOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+
+          <div className={styles.utility} aria-label="Utility">
+            <button type="button" className={styles.util} onClick={() => setSearchOpen(true)}>
+              Search
             </button>
           </div>
 
           <div className={styles.mobileActions}>
             <button
               type="button"
-              className={styles.iconBtn}
+              className={styles.util}
               aria-label="Search the collection"
               onClick={() => setSearchOpen(true)}
             >
@@ -118,7 +167,7 @@ export default function Header() {
             </button>
             <button
               type="button"
-              className={styles.iconBtn}
+              className={styles.util}
               aria-label={`Cart${itemCount > 0 ? `, ${itemCount} items` : ", empty"}`}
               onClick={() => setCartOpen(true)}
             >
@@ -140,16 +189,6 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <button
-            type="button"
-            className={styles.mobileSearch}
-            onClick={() => {
-              setMenuOpen(false);
-              setSearchOpen(true);
-            }}
-          >
-            Search
-          </button>
         </nav>
       )}
 

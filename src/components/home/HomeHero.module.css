@@ -1,4 +1,4 @@
-/* Aesop — one image carries the opening; PDF copy lower-left; Rhode: little chrome */
+/* PDF p.12–17 + Aesop — image leads; disciplined copy; first-screen clarity */
 
 .hero {
   position: relative;
@@ -15,25 +15,24 @@
   inset: 0;
 }
 
-/* Light wash only where type sits — image still leads */
 .scrim {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
     linear-gradient(
-      100deg,
-      rgba(253, 252, 248, 0.78) 0%,
-      rgba(253, 252, 248, 0.42) 28%,
-      rgba(253, 252, 248, 0.08) 52%,
-      transparent 70%
+      105deg,
+      rgba(253, 252, 248, 0.92) 0%,
+      rgba(253, 252, 248, 0.55) 30%,
+      rgba(253, 252, 248, 0.12) 52%,
+      transparent 68%
     ),
     linear-gradient(
       180deg,
-      rgba(253, 252, 248, 0.55) 0%,
+      rgba(253, 252, 248, 0.5) 0%,
       transparent 16%,
-      transparent 72%,
-      rgba(253, 252, 248, 0.82) 100%
+      transparent 64%,
+      rgba(253, 252, 248, 0.94) 100%
     );
 }
 
@@ -48,21 +47,21 @@
   max-width: var(--max-width);
   margin: 0 auto;
   padding:
-    calc(var(--header-home-height) + env(safe-area-inset-top, 0px) + 1.25rem)
+    calc(var(--header-home-height) + env(safe-area-inset-top, 0px) + 1.75rem)
     var(--gutter)
-    clamp(1.75rem, 4vw, 2.75rem);
+    clamp(1.75rem, 4vw, 3rem);
+  gap: 2.5rem;
 }
 
 .copy {
-  max-width: 26rem;
-  text-align: left;
+  max-width: 30rem;
 }
 
 .eyebrow {
   font-family: var(--font-cinzel);
   font-size: 0.5625rem;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--deep-gold);
   margin-bottom: 1.1rem;
@@ -70,16 +69,16 @@
 
 .title {
   font-family: var(--font-cormorant);
-  font-size: clamp(2.5rem, 5.8vw, 4rem);
+  font-size: clamp(2.625rem, 5.8vw, 4rem);
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.06;
   color: var(--ink);
 }
 
 .titleBreak {
   display: block;
   font-style: italic;
-  margin-top: 0.06em;
+  margin-top: 0.05em;
 }
 
 .lead {
@@ -88,22 +87,17 @@
   font-weight: 400;
   line-height: 1.7;
   color: var(--soft-ink);
-  max-width: 24rem;
-  margin-top: 1.15rem;
+  max-width: 26rem;
+  margin-top: 1.2rem;
 }
 
 .ctas {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.5rem;
-  margin-top: 1.6rem;
+  margin-top: 1.65rem;
 }
 
-.ctaSecondary {
-  min-height: var(--tap-min);
+.ctaPrimary {
   display: inline-flex;
-  align-items: center;
+  min-height: var(--tap-min);
 }
 
 .proof {
@@ -111,16 +105,16 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem 2rem;
-  margin-top: clamp(2.25rem, 5vw, 3.5rem);
-  padding-top: 1.15rem;
+  max-width: 42rem;
+  padding-top: 1.25rem;
   border-top: 1px solid rgba(190, 158, 86, 0.32);
-  max-width: 46rem;
 }
 
 .proofItem {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  min-width: 0;
 }
 
 .proofLabel {
@@ -134,10 +128,16 @@
 
 .proofText {
   font-family: var(--font-jost);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
   color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.proofText:hover {
+  color: var(--deep-gold);
 }
 
 @media (max-width: 900px) {
@@ -151,99 +151,64 @@
         180deg,
         rgba(253, 252, 248, 0.82) 0%,
         rgba(253, 252, 248, 0.22) 18%,
-        rgba(253, 252, 248, 0.2) 48%,
-        rgba(253, 252, 248, 0.92) 78%,
+        rgba(253, 252, 248, 0.5) 55%,
         rgba(253, 252, 248, 0.97) 100%
       );
   }
 
   .frame {
     padding:
-      calc(var(--header-home-height) + env(safe-area-inset-top, 0px) + 0.75rem)
+      calc(var(--header-home-height) + env(safe-area-inset-top, 0px) + 0.85rem)
       var(--gutter)
-      max(1.25rem, env(safe-area-inset-bottom, 0px));
-    gap: 1.25rem;
+      max(1.35rem, env(safe-area-inset-bottom, 0px));
+    gap: 1.35rem;
   }
 
-  .copy,
-  .proof {
+  .copy {
     max-width: none;
   }
 
   .title {
-    font-size: clamp(2rem, 8vw, 2.75rem);
+    font-size: clamp(2.05rem, 8vw, 2.7rem);
   }
 
   .lead {
     max-width: none;
-    margin-top: 0.85rem;
     font-size: 0.9375rem;
-    line-height: 1.6;
-  }
-
-  .ctas {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
-    margin-top: 1.15rem;
   }
 
   .ctaPrimary {
     width: 100%;
   }
 
-  .ctaSecondary {
-    justify-content: center;
-    width: 100%;
-  }
-
   .proof {
     grid-template-columns: 1fr;
-    gap: 0.7rem;
-    margin-top: 0;
-    padding-top: 1rem;
+    max-width: none;
+    gap: 0.75rem;
   }
 
   .proofItem {
     display: grid;
-    grid-template-columns: 3.75rem minmax(0, 1fr);
+    grid-template-columns: 3.5rem minmax(0, 1fr);
     gap: 0.65rem;
     align-items: baseline;
   }
 
   .proofText {
     font-size: 0.8125rem;
-    line-height: 1.45;
+    min-height: var(--tap-min);
+    display: flex;
+    align-items: center;
   }
 }
 
 @media (max-width: 640px) {
-  .eyebrow {
-    margin-bottom: 0.75rem;
-    font-size: 0.5rem;
-    letter-spacing: 0.2em;
-  }
-
   .title {
-    font-size: clamp(1.875rem, 8.5vw, 2.35rem);
-    line-height: 1.12;
-  }
-}
-
-@media (max-height: 700px) and (max-width: 900px) {
-  .hero {
-    min-height: 100svh;
+    font-size: clamp(1.9rem, 8.5vw, 2.35rem);
   }
 
   .eyebrow {
-    margin-bottom: 0.5rem;
-  }
-
-  .ctas {
-    margin-top: 0.85rem;
-  }
-
-  .proofText {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.22em;
   }
 }
