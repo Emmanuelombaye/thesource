@@ -4,10 +4,12 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./HeroFilm.module.css";
 
-/** Live-site still + film; editorial still as fallback. PDF: slow, restrained hero movement. */
+/** Live-site still + film. PDF: slow, restrained hero movement — clearly slow-mo, not sluggish. */
 const HERO_STILL = "/brand/hero.jpg";
 const HERO_EDITORIAL = "/brand/hero-editorial.jpg";
 const HERO_FILM = "/brand/hero.mp4";
+/** ~72% speed — readable as slow motion, a touch faster than half-speed. */
+const SLOW_MO_RATE = 0.72;
 
 export default function HeroFilm() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -18,7 +20,6 @@ export default function HeroFilm() {
 
   useEffect(() => {
     const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const mqNarrow = window.matchMedia("(max-width: 700px)");
     const connection = (
       typeof navigator !== "undefined"
         ? (navigator as Navigator & {
@@ -35,7 +36,8 @@ export default function HeroFilm() {
       setReduceMotion(reduced);
       const saveData = Boolean(connection?.saveData);
       const slowNet = /2g/.test(connection?.effectiveType ?? "");
-      const useFilm = !reduced && !mqNarrow.matches && !saveData && !slowNet;
+      // Phones included — muted + playsInline. Skip only reduced-motion / save-data / very slow net.
+      const useFilm = !reduced && !saveData && !slowNet;
       setAllowFilm(useFilm);
       if (!useFilm) {
         videoRef.current?.pause();
@@ -45,11 +47,9 @@ export default function HeroFilm() {
 
     update();
     mqMotion.addEventListener("change", update);
-    mqNarrow.addEventListener("change", update);
     connection?.addEventListener("change", update);
     return () => {
       mqMotion.removeEventListener("change", update);
-      mqNarrow.removeEventListener("change", update);
       connection?.removeEventListener("change", update);
     };
   }, []);
@@ -58,19 +58,30 @@ export default function HeroFilm() {
     const video = videoRef.current;
     if (!video || !allowFilm) return;
 
-    video.playbackRate = 0.55;
+    const applyRate = () => {
+      video.playbackRate = SLOW_MO_RATE;
+    };
+
+    applyRate();
     const play = () => {
-      video.playbackRate = 0.55;
+      applyRate();
       video
         .play()
-        .then(() => setFilmReady(true))
+        .then(() => {
+          applyRate();
+          setFilmReady(true);
+        })
         .catch(() => setFilmReady(false));
     };
 
+    video.addEventListener("ratechange", applyRate);
     if (video.readyState >= 2) play();
     else video.addEventListener("canplay", play, { once: true });
 
-    return () => video.removeEventListener("canplay", play);
+    return () => {
+      video.removeEventListener("ratechange", applyRate);
+      video.removeEventListener("canplay", play);
+    };
   }, [allowFilm]);
 
   return (
