@@ -3,64 +3,40 @@
   top: 0;
   z-index: 200;
   background: var(--ivory);
-  border-bottom: 1px solid rgba(190, 158, 86, 0.12);
+  border-bottom: 1px solid rgba(190, 158, 86, 0.18);
 }
 
-/* Homepage — slim nav over hero; fixed so it persists on scroll */
 .headerHome {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 300;
-  background: transparent;
-  border-bottom: none;
+  background: var(--ivory);
 }
 
-.headerHome .main {
-  background: rgba(253, 252, 248, 0.97);
-  border-bottom: 1px solid rgba(190, 158, 86, 0.18);
-}
-
-.headerHome .brand {
-  gap: 0;
-}
-
-.utilityBar {
-  border-bottom: 1px solid rgba(190, 158, 86, 0.1);
-}
-
-.utilityInner {
-  display: flex;
+/* ── Mast: announcement + utility as one cream bar ── */
+.mast {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
   min-height: 36px;
-  padding-top: 0.35rem;
-  padding-bottom: 0.35rem;
+  background: var(--cream);
+  border-bottom: 1px solid rgba(190, 158, 86, 0.14);
 }
 
-.utilityMark {
-  font-family: var(--font-cinzel);
-  font-size: 0.5rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.utilityNav {
+.utility {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
+  gap: 1.25rem;
+  padding: 0 var(--gutter) 0 1.5rem;
+  background: var(--cream);
   flex-shrink: 0;
 }
 
 .utilityLink {
   font-family: var(--font-cinzel);
-  font-size: 0.5rem;
+  font-size: 0.625rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -70,174 +46,151 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  min-height: var(--tap-min);
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  position: relative;
 }
 
 .utilityLink:hover,
-.utilityLink.active {
-  color: var(--gold);
+.utilityActive {
+  color: var(--deep-gold);
+}
+
+.utilityLink::after,
+.utilityActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.utilityLink:hover::after,
+.utilityActive::after {
+  transform: scaleX(1);
+}
+
+/* ── Primary: equal columns, ceremonial lockup ── */
+.main {
+  background: var(--ivory);
 }
 
 .mainInner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "left brand right";
   align-items: center;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  position: relative;
-  gap: clamp(0.5rem, 1.5vw, 1.25rem);
+  column-gap: 2.5rem;
+  min-height: 96px;
+}
+
+.leftNav,
+.rightNav {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
 }
 
 .leftNav {
-  grid-column: 1;
-  justify-self: start;
-  display: flex;
-  align-items: center;
-  gap: clamp(0.65rem, 1.5vw, 1.25rem);
-  min-width: 0;
+  grid-area: left;
+  justify-content: flex-start;
+}
+
+.rightNav {
+  grid-area: right;
+  justify-content: flex-end;
 }
 
 .brand {
-  grid-column: 2;
+  grid-area: brand;
   justify-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
   text-decoration: none;
   color: inherit;
-  flex-shrink: 0;
-}
-
-.rightCluster {
-  grid-column: 3;
-  justify-self: end;
-  display: flex;
-  align-items: center;
-  gap: clamp(0.5rem, 1.2vw, 1rem);
-  min-width: 0;
-}
-
-.rightNav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: clamp(0.65rem, 1.5vw, 1.25rem);
-  min-width: 0;
-}
-
-.homeUtility {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding-left: 0.75rem;
-  border-left: 1px solid rgba(190, 158, 86, 0.18);
-  flex-shrink: 0;
-}
-
-.homeUtilityLink {
-  font-family: var(--font-cinzel);
-  font-size: 0.5625rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  white-space: nowrap;
-  transition: color 0.2s ease;
-}
-
-.homeUtilityLink:hover,
-.homeUtilityLink.active {
-  color: var(--gold);
 }
 
 .wordmark {
   font-family: var(--font-cinzel);
-  font-size: 0.5625rem;
+  font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--ink);
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .navLink {
   font-family: var(--font-cinzel);
-  font-size: clamp(0.5rem, 0.68vw, 0.5625rem);
+  font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
-  min-height: var(--tap-min);
-  display: inline-flex;
-  align-items: center;
-  transition: color 0.2s ease;
+  line-height: 1;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.22s ease;
 }
 
 .navLink:hover,
 .navLink.active {
-  color: var(--gold);
+  color: var(--ink);
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  transform: scaleX(1);
+}
+
+.menuBtn,
+.mobileActions {
+  display: none;
 }
 
 .iconBtn {
-  position: relative;
+  font-family: var(--font-cinzel);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: var(--tap-min);
   min-height: var(--tap-min);
+  padding: 0 0.35rem;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--ink);
-  transition: color 0.2s ease;
 }
 
 .iconBtn:hover {
-  color: var(--gold);
-}
-
-.cartBadge {
-  position: absolute;
-  top: 4px;
-  right: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  font-family: var(--font-jost);
-  font-size: 0.5rem;
-  font-weight: 500;
-  background: var(--gold);
-  color: var(--ivory);
-}
-
-.menuBtn {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: var(--tap-min);
-  height: var(--tap-min);
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.menuBtn span {
-  display: block;
-  width: 22px;
-  height: 1px;
-  background: var(--ink);
+  color: var(--deep-gold);
 }
 
 .mobileNav {
@@ -248,15 +201,11 @@
   border-bottom: 1px solid rgba(190, 158, 86, 0.15);
 }
 
-.headerHome .mobileNav {
-  background: rgba(253, 252, 248, 0.98);
-}
-
 .mobileNav a,
 .mobileNav button {
   font-family: var(--font-cinzel);
-  font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
@@ -277,7 +226,7 @@
 .mobileNav a.active,
 .mobileNav a:hover,
 .mobileNav button:hover {
-  color: var(--gold);
+  color: var(--deep-gold);
 }
 
 .mobileSearch {
@@ -285,44 +234,86 @@
   margin-top: 0.5rem;
 }
 
-@media (max-width: 1180px) {
-  .utilityMark {
-    display: none;
-  }
+.menuBtn {
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuBtn span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--ink);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menuBtnOpen span:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.menuBtnOpen span:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
 }
 
 @media (max-width: 1100px) {
-  .utilityBar,
+  .mast {
+    grid-template-columns: 1fr;
+  }
+
+  .utility {
+    display: none;
+  }
+
+  .mainInner {
+    display: grid;
+    grid-template-columns: var(--tap-min) 1fr auto;
+    grid-template-areas: "menu brand actions";
+    column-gap: 0.75rem;
+    min-height: 80px;
+  }
+
   .leftNav,
-  .rightNav,
-  .homeUtility {
+  .rightNav {
     display: none;
   }
 
   .menuBtn {
     display: flex;
+    grid-area: menu;
+    justify-self: start;
+  }
+
+  .brand {
+    grid-area: brand;
+    padding: 0.5rem 0;
+  }
+
+  .mobileActions {
+    display: flex;
+    grid-area: actions;
+    align-items: center;
+    justify-self: end;
+    gap: 0.5rem;
   }
 
   .mobileNav {
     display: flex;
   }
 
-  .mainInner {
-    display: flex;
-    justify-content: center;
-  }
-
-  .menuBtn {
-    position: absolute;
-    left: var(--gutter);
-    top: 50%;
-    transform: translateY(-50%);
+  .wordmark {
+    font-size: 0.625rem;
+    letter-spacing: 0.26em;
   }
 }
 
 @media (max-width: 480px) {
-  .wordmark {
-    font-size: 0.5rem;
-    letter-spacing: 0.22em;
+  .mobileActions .iconBtn:first-child {
+    display: none;
   }
 }

@@ -1,8 +1,13 @@
 import Link from "next/link";
 import HeroFilm from "@/components/HeroFilm";
-import ClarityStrip from "@/components/home/ClarityStrip";
-import Monogram from "@/components/Monogram";
 import styles from "./HomeHero.module.css";
+
+/** PDF p.17 — homepage hero wireframe: headline + subline; first screen states what / who / proof */
+const proof = [
+  { label: "What", text: "Research materials" },
+  { label: "Who", text: "Qualified laboratory research" },
+  { label: "Proof", text: "Batch certificates on request" },
+];
 
 export default function HomeHero() {
   return (
@@ -12,9 +17,8 @@ export default function HomeHero() {
         <div className={styles.scrim} aria-hidden="true" />
       </div>
 
-      <div className={`container ${styles.copy}`}>
-        <div className={styles.copyPanel}>
-          <Monogram mode="monogram" variant="gold" size={52} className={styles.mark} />
+      <div className={styles.frame}>
+        <div className={styles.copy}>
           <p className={styles.eyebrow}>Precision · Purity · Performance</p>
           <h1 className={styles.title}>
             Research materials.
@@ -32,13 +36,15 @@ export default function HomeHero() {
             </Link>
           </div>
         </div>
-      </div>
 
-      {/* PDF p.17 — what / who / proof inside the first screen */}
-      <div className={styles.clarity}>
-        <div className="container">
-          <ClarityStrip embedded />
-        </div>
+        <ul className={styles.proof} aria-label="What The Source offers">
+          {proof.map((item) => (
+            <li key={item.label} className={styles.proofItem}>
+              <span className={styles.proofLabel}>{item.label}</span>
+              <span className={styles.proofText}>{item.text}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

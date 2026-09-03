@@ -29,14 +29,14 @@
   --gutter: clamp(1.75rem, 7vw, 6rem);
   --section-gap: clamp(5.5rem, 11vw, 9rem);
   --tap-min: 44px;
-  --header-height: 168px;
-  --header-home-height: 92px;
+  --header-height: 132px;
+  --header-home-height: 132px;
 }
 
 @media (max-width: 1100px) {
   :root {
     --header-height: 116px;
-    --header-home-height: 88px;
+    --header-home-height: 116px;
   }
 }
 

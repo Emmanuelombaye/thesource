@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 18%;
+  /* PDF — clear space around the mark ≈ the central stem */
+  padding: 12%;
   box-sizing: content-box;
 }
 
