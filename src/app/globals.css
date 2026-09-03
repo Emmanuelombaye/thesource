@@ -30,14 +30,14 @@
   --section-gap: clamp(5.5rem, 11vw, 9rem);
   --tap-min: 44px;
   --header-height: 112px;
-  --header-home-height: 76px;
+  --header-home-height: 80px;
 }
 
 @media (max-width: 900px) {
   :root {
     --gutter: 1.25rem;
-    --header-height: 60px;
-    --header-home-height: 60px;
+    --header-height: 64px;
+    --header-home-height: 64px;
   }
 }
 

@@ -4,8 +4,10 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 12%;
-  box-sizing: content-box;
+  /* Keep the full mark visible — no extra pad that clips in a tight header */
+  padding: 0;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 .mark {
@@ -18,4 +20,5 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: contain;
+  object-position: center;
 }

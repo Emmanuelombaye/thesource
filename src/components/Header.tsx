@@ -98,7 +98,7 @@ export default function Header() {
           </button>
 
           <Link href="/" className={styles.brand} aria-label="The Source — home">
-            <Monogram mode="monogram" variant="gold" size={42} priority />
+            <Monogram mode="monogram" variant="gold" size={36} priority />
             <span className={styles.wordmark}>THE SOURCE</span>
           </Link>
 
