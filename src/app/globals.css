@@ -76,6 +76,8 @@ body {
   background: var(--ivory);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Keep page copy clear of the fixed Concierge control */
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
 }
 
 img {

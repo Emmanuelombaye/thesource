@@ -129,12 +129,17 @@
 }
 
 .vialNote {
-  margin-top: 2rem;
+  margin-top: 2.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(190, 158, 86, 0.28);
+  background: var(--cream);
   font-family: var(--font-cinzel);
-  font-size: 0.5625rem;
-  letter-spacing: 0.12em;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--soft-ink);
+  color: var(--ink);
+  line-height: 1.7;
 }
 
 .mark {
