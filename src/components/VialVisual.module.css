@@ -1,152 +1,87 @@
 .plate {
-  position: relative;
   width: 100%;
   height: 100%;
-  min-height: 240px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.labelCard {
-  position: relative;
-  z-index: 1;
-  width: min(78%, 220px);
-  min-height: 260px;
-  background: var(--white);
-  border: 1px solid rgba(190, 158, 86, 0.28);
-  box-shadow: 0 10px 28px rgba(25, 19, 7, 0.06);
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding: 1.2rem 1rem 1.1rem;
-  text-align: center;
-  overflow: visible;
-}
-
-.mark {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 0.7rem;
-  flex-shrink: 0;
+  gap: 0.65rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
 }
 
 .name {
   display: block;
   width: 100%;
+  max-width: 14rem;
   font-family: var(--font-cormorant);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--ink);
-  line-height: 1.28;
+  line-height: 1.25;
 }
 
 .nameStack {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.12rem;
+  gap: 0.1rem;
 }
 
 .nameLine {
   display: block;
   width: 100%;
-  white-space: normal;
-  overflow-wrap: normal;
   word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .nameCompact {
-  font-size: 0.84rem;
-  line-height: 1.22;
+  font-size: 0.88rem;
+  line-height: 1.2;
 }
 
 .strength {
   font-family: var(--font-cinzel);
   font-size: 0.5625rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ivory);
-  background: var(--gold);
-  padding: 0.35rem 0.55rem;
-  margin-top: 0.85rem;
-  max-width: 100%;
-  line-height: 1.2;
-  flex-shrink: 0;
-}
-
-.ruo {
-  margin-top: auto;
-  font-family: var(--font-cinzel);
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft-ink);
-  padding-top: 0.9rem;
-  flex-shrink: 0;
-}
-
-.lg .labelCard {
-  width: min(90%, 300px);
-  min-height: 320px;
+  color: var(--deep-gold);
 }
 
 .lg .name {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
+  max-width: 16rem;
 }
 
 .lg .nameCompact {
-  font-size: 0.9rem;
-}
-
-.sm .labelCard {
-  width: min(88%, 270px);
-  min-height: 290px;
+  font-size: 1rem;
 }
 
 .sm .name {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 
 .sm .nameCompact {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 }
 
 @media (max-width: 700px) {
   .plate {
-    min-height: 260px;
-    padding: 0.75rem;
-  }
-
-  .sm .labelCard,
-  .md .labelCard,
-  .lg .labelCard {
-    width: min(82%, 240px);
-    min-height: 280px;
-    padding: 1.2rem 1rem 1.1rem;
+    padding: 1rem 0.85rem;
+    gap: 0.55rem;
   }
 
   .name,
   .sm .name,
   .lg .name {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    max-width: 12.5rem;
   }
 
   .nameCompact,
   .sm .nameCompact,
   .lg .nameCompact {
-    font-size: 0.82rem;
-  }
-
-  .strength {
-    font-size: 0.5625rem;
-    padding: 0.4rem 0.6rem;
-  }
-
-  .ruo {
-    font-size: 0.5rem;
+    font-size: 0.85rem;
   }
 }

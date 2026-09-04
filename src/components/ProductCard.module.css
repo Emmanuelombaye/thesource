@@ -34,17 +34,17 @@
 /* ~62% image well — Immortals proportion, cream product field */
 .collectionGrid .visual {
   position: relative;
-  flex: 0 0 62%;
-  min-height: 0;
+  flex: 0 0 58%;
+  min-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(1.25rem, 2.5vw, 2rem) clamp(1rem, 2vw, 1.5rem) 0.5rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1rem, 2vw, 1.5rem);
   background:
     radial-gradient(ellipse 78% 68% at 50% 38%, rgba(253, 252, 248, 0.95) 0%, transparent 72%),
     linear-gradient(180deg, var(--ivory) 0%, var(--cream) 100%);
   border-bottom: 1px solid rgba(190, 158, 86, 0.12);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .badge {
@@ -359,10 +359,10 @@
 
   .collectionGrid .visual {
     flex: 0 0 auto;
-    aspect-ratio: auto;
-    min-height: 300px;
-    padding: 1.25rem 0.75rem 0.75rem;
-    overflow: visible;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    padding: 1.5rem 1rem;
+    overflow: hidden;
   }
 
   .collectionGrid .meta {

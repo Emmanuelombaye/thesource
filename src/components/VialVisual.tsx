@@ -7,7 +7,6 @@ interface VialVisualProps {
   size?: "sm" | "md" | "lg";
 }
 
-/** Break blend names into short full lines — never mid-word. */
 function nameLines(name?: string): string[] {
   if (!name) return ["—"];
 
@@ -21,7 +20,6 @@ function nameLines(name?: string): string[] {
     return [`${left.trim()}/`, right];
   }
 
-  // Long single names: break after closing paren if present
   const paren = name.match(/^(.+\))\s*(.+)$/);
   if (paren && name.length > 18) {
     return [paren[1], paren[2]];
@@ -32,12 +30,10 @@ function nameLines(name?: string): string[] {
 
 function NameBlock({ name }: { name?: string }) {
   const lines = nameLines(name);
-  const compact = lines.join("").length > 24;
+  const compact = lines.join("").length > 20;
 
   return (
-    <span
-      className={`${styles.name} ${styles.nameStack} ${compact ? styles.nameCompact : ""}`}
-    >
+    <span className={`${styles.name} ${styles.nameStack} ${compact ? styles.nameCompact : ""}`}>
       {lines.map((line) => (
         <span key={line} className={styles.nameLine}>
           {line}
@@ -47,20 +43,17 @@ function NameBlock({ name }: { name?: string }) {
   );
 }
 
-/** Neutral label plate when no exact product photo exists — full name always visible. */
+/** Quiet placeholder when no exact product photo exists. */
 export default function VialVisual({ product, size = "md" }: VialVisualProps) {
-  const monogramSize = size === "lg" ? 22 : 18;
+  const monogramSize = size === "lg" ? 28 : 20;
 
   return (
     <div className={`${styles.plate} ${styles[size]}`} aria-hidden="true">
-      <div className={styles.labelCard}>
-        <span className={styles.mark}>
-          <Monogram mode="monogram" variant="gold" size={monogramSize} />
-        </span>
-        <NameBlock name={product?.name} />
-        <span className={styles.strength}>{product?.amount ?? "—"}</span>
-        <span className={styles.ruo}>Research Use Only</span>
-      </div>
+      <Monogram mode="monogram" variant="gold" size={monogramSize} />
+      <NameBlock name={product?.name} />
+      {product?.amount && product.amount !== "—" && (
+        <span className={styles.strength}>{product.amount}</span>
+      )}
     </div>
   );
 }
