@@ -46,7 +46,7 @@ const standards = [
 
     body: [
 
-      "Every batch is independently assayed for identity and purity before it carries the mark. The certificate of analysis names the lot it certifies — purity here is a document, not a claim.",
+      "Every batch is independently assessed for identity and purity before it carries the mark. The certificate of analysis names the lot it certifies — purity here is a document, not a claim.",
 
     ],
 
@@ -62,7 +62,7 @@ const standards = [
 
     body: [
 
-      "Orders leave the house within 24 to 48 hours — sealed, tracked, and unopened in transit. The vial that arrives is the vial that was tested.",
+      "Orders leave The Source within 24 to 48 hours — sealed, tracked, and unopened in transit. The vial that arrives is the vial that was tested.",
 
     ],
 
@@ -76,9 +76,9 @@ const standards = [
 
 const badges = [
 
-  { title: "Analytically Verified", text: "Assayed against a reference standard, lot by lot." },
+  { title: "Analytically Verified", text: "Assessed against a reference standard, lot by lot." },
 
-  { title: "Third-Party Tested", text: "Every batch assayed for purity and potency." },
+  { title: "Third-Party Tested", text: "Every batch assessed for purity and potency." },
 
   { title: "Research Use Only", text: "Supplied strictly for laboratory research." },
 
