@@ -30,7 +30,7 @@ const standards = [
 
     body: [
 
-      "Every certificate the house holds was issued by an independent American laboratory — Vanguard Laboratory, Kovera Labs, or Freedom Diagnostics — named on the document, published as issued, never re-rendered.",
+      "Every certificate The Source holds was issued by an independent American laboratory — Vanguard Laboratory, Kovera Labs, or Freedom Diagnostics — named on the document, published as issued, never re-rendered.",
 
     ],
 
@@ -210,7 +210,7 @@ export default function TheStandardPage() {
 
               Testing is done by independent American laboratories, and every
 
-              certificate the house holds is published beside the vial it
+              certificate The Source holds is published beside the vial it
 
               certifies. Every detail — from the rigid white box to the engraved
 
