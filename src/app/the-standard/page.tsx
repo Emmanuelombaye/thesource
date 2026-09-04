@@ -316,7 +316,7 @@ export default function TheStandardPage() {
 
             Enter the lot or report number from your label. Where the laboratory
 
-            recorded one, its certificate opens straight away; otherwise the house
+            recorded one, its certificate opens straight away; otherwise The Source
 
             will confirm the record within 24 hours.
 
