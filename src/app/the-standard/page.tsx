@@ -30,7 +30,7 @@ const standards = [
 
     body: [
 
-      "Every certificate The Source holds was issued by an independent American laboratory — Vanguard Laboratory, Kovera Labs, or Freedom Diagnostics — named on the document, published as issued, never re-rendered.",
+      "Every certificate the house holds was issued by an independent American laboratory — Vanguard Laboratory, Kovera Labs, or Freedom Diagnostics — named on the document, published as issued, never re-rendered.",
 
     ],
 
@@ -62,7 +62,7 @@ const standards = [
 
     body: [
 
-      "Orders leave The Source within 24 to 48 hours — sealed, tracked, and unopened in transit. The vial that arrives is the vial that was tested.",
+      "Orders leave the house within 24 to 48 hours — sealed, tracked, and unopened in transit. The vial that arrives is the vial that was tested.",
 
     ],
 
@@ -210,7 +210,7 @@ export default function TheStandardPage() {
 
               Testing is done by independent American laboratories, and every
 
-              certificate The Source holds is published beside the vial it
+              certificate the house holds is published beside the vial it
 
               certifies. Every detail — from the rigid white box to the engraved
 
@@ -316,7 +316,7 @@ export default function TheStandardPage() {
 
             Enter the lot or report number from your label. Where the laboratory
 
-            recorded one, its certificate opens straight away; otherwise The Source
+            recorded one, its certificate opens straight away; otherwise the house
 
             will confirm the record within 24 hours.
 
