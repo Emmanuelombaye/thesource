@@ -7,23 +7,32 @@ interface VialVisualProps {
   size?: "sm" | "md" | "lg";
 }
 
-/** Allow long compound names to wrap at / and spaces without clipping. */
-function displayName(name?: string): string {
-  if (!name) return "—";
-  return name.replace(/\//g, "/\u200B").replace(/·/g, "·\u200B");
+function NameBlock({ name }: { name?: string }) {
+  if (!name) return <span className={styles.name}>—</span>;
+
+  // Split at "/" so blends never clip mid-word (e.g. Ipamorelin).
+  if (name.includes("/")) {
+    const [left, ...rest] = name.split("/");
+    const right = rest.join("/").trim();
+    return (
+      <span className={`${styles.name} ${styles.nameStack}`}>
+        <span className={styles.nameLine}>{left.trim()}/</span>
+        <span className={styles.nameLine}>{right}</span>
+      </span>
+    );
+  }
+
+  const long = name.length > 22;
+  return (
+    <span className={`${styles.name} ${long ? styles.nameLong : ""}`}>
+      {name}
+    </span>
+  );
 }
 
-function nameClass(name?: string): string {
-  const len = name?.length ?? 0;
-  if (len > 28) return styles.nameLong;
-  if (len > 18) return styles.nameMid;
-  return "";
-}
-
-/** Neutral label plate when no exact product photo exists — name/amount match the card. */
+/** Neutral label plate when no exact product photo exists — full name always visible. */
 export default function VialVisual({ product, size = "md" }: VialVisualProps) {
-  const monogramSize = size === "lg" ? 26 : size === "sm" ? 20 : 22;
-  const name = product?.name;
+  const monogramSize = size === "lg" ? 24 : size === "sm" ? 18 : 20;
 
   return (
     <div className={`${styles.plate} ${styles[size]}`} aria-hidden="true">
@@ -32,9 +41,7 @@ export default function VialVisual({ product, size = "md" }: VialVisualProps) {
         <span className={styles.mark}>
           <Monogram mode="monogram" variant="gold" size={monogramSize} />
         </span>
-        <span className={`${styles.name} ${nameClass(name)}`}>
-          {displayName(name)}
-        </span>
+        <NameBlock name={product?.name} />
         <span className={styles.strength}>{product?.amount ?? "—"}</span>
         <span className={styles.ruo}>Research Use Only</span>
       </div>
