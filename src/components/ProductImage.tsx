@@ -21,7 +21,9 @@ export default function ProductImage({ product, size = "card", priority = false 
 
   if (!src || failed) {
     return (
-      <div className={`${styles.frame} ${isDetail ? styles.frameDetail : styles.frameCard}`}>
+      <div
+        className={`${styles.frame} ${styles.frameFallback} ${isDetail ? styles.frameDetail : styles.frameCard}`}
+      >
         <VialVisual product={product} size={isDetail ? "lg" : "sm"} />
       </div>
     );

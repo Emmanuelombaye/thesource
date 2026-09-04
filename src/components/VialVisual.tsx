@@ -7,32 +7,49 @@ interface VialVisualProps {
   size?: "sm" | "md" | "lg";
 }
 
-function NameBlock({ name }: { name?: string }) {
-  if (!name) return <span className={styles.name}>—</span>;
+/** Break blend names into short full lines — never mid-word. */
+function nameLines(name?: string): string[] {
+  if (!name) return ["—"];
 
-  // Split at "/" so blends never clip mid-word (e.g. Ipamorelin).
   if (name.includes("/")) {
     const [left, ...rest] = name.split("/");
     const right = rest.join("/").trim();
-    return (
-      <span className={`${styles.name} ${styles.nameStack}`}>
-        <span className={styles.nameLine}>{left.trim()}/</span>
-        <span className={styles.nameLine}>{right}</span>
-      </span>
-    );
+    const blend = right.match(/^(.*?)\s+(Blend)$/i);
+    if (blend) {
+      return [`${left.trim()}/`, blend[1].trim(), blend[2]];
+    }
+    return [`${left.trim()}/`, right];
   }
 
-  const long = name.length > 22;
+  // Long single names: break after closing paren if present
+  const paren = name.match(/^(.+\))\s*(.+)$/);
+  if (paren && name.length > 18) {
+    return [paren[1], paren[2]];
+  }
+
+  return [name];
+}
+
+function NameBlock({ name }: { name?: string }) {
+  const lines = nameLines(name);
+  const compact = lines.join("").length > 24;
+
   return (
-    <span className={`${styles.name} ${long ? styles.nameLong : ""}`}>
-      {name}
+    <span
+      className={`${styles.name} ${styles.nameStack} ${compact ? styles.nameCompact : ""}`}
+    >
+      {lines.map((line) => (
+        <span key={line} className={styles.nameLine}>
+          {line}
+        </span>
+      ))}
     </span>
   );
 }
 
 /** Neutral label plate when no exact product photo exists — full name always visible. */
 export default function VialVisual({ product, size = "md" }: VialVisualProps) {
-  const monogramSize = size === "lg" ? 24 : size === "sm" ? 18 : 20;
+  const monogramSize = size === "lg" ? 22 : 18;
 
   return (
     <div className={`${styles.plate} ${styles[size]}`} aria-hidden="true">

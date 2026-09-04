@@ -5,9 +5,27 @@
   overflow: hidden;
 }
 
+/* Fallback labels must not be clipped mid-word */
+.frameFallback {
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: auto;
+  min-height: 280px;
+  height: auto;
+}
+
 .frameCard {
   min-height: 100%;
   aspect-ratio: 1 / 1;
+}
+
+.frameFallback.frameCard,
+.frameFallback.frameDetail {
+  aspect-ratio: auto;
+  min-height: 300px;
+  height: 100%;
 }
 
 .frameCollection {
