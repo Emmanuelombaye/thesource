@@ -53,7 +53,6 @@ export default function VialVisual({ product, size = "md" }: VialVisualProps) {
 
   return (
     <div className={`${styles.plate} ${styles[size]}`} aria-hidden="true">
-      <div className={styles.frame} />
       <div className={styles.labelCard}>
         <span className={styles.mark}>
           <Monogram mode="monogram" variant="gold" size={monogramSize} />
