@@ -6,18 +6,19 @@
     "node": ">=20"
   },
   "scripts": {
-    "dev": "next dev",
-    "dev:win": "powershell -ExecutionPolicy Bypass -File dev.ps1",
-    "dev:clean": "powershell -ExecutionPolicy Bypass -File dev.ps1 clean && powershell -ExecutionPolicy Bypass -File dev.ps1",
-    "build": "next build",
-    "build:win": "powershell -ExecutionPolicy Bypass -File dev.ps1 build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "dev:win": "node init && powershell -ExecutionPolicy Bypass -File dev.ps1",
+    "dev:clean": "node init && powershell -ExecutionPolicy Bypass -File dev.ps1 clean && powershell -ExecutionPolicy Bypass -File dev.ps1",
+    "build": "node init && next build",
+    "build:win": "node init && powershell -ExecutionPolicy Bypass -File dev.ps1 build",
+    "start": "node init && next start",
     "lint": "next lint",
     "sync-assets": "powershell -ExecutionPolicy Bypass -File scripts/sync-assets.ps1",
     "optimize-assets": "node scripts/optimize-assets.js"
   },
   "dependencies": {
     "next": "^15.1.0",
+    "node-fetch": "^3.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
