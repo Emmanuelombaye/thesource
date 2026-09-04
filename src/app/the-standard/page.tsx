@@ -30,9 +30,7 @@ const standards = [
 
     body: [
 
-      "Assayed on American soil. Every certificate the house holds was issued by a laboratory in the United States — named on the document, not by us.",
-
-      "The certificates on file come from Vanguard Laboratory, Kovera Labs and Freedom Diagnostics — all American, all independent of the house. Each report is published exactly as the laboratory issued it: hot-linked, never copied, never re-rendered, because editing a certificate destroys the only thing that makes it worth anything.",
+      "Every certificate the house holds was issued by an independent American laboratory — Vanguard Laboratory, Kovera Labs, or Freedom Diagnostics — named on the document, published as issued, never re-rendered.",
 
     ],
 
@@ -48,9 +46,7 @@ const standards = [
 
     body: [
 
-      "Independently assayed for identity and purity. The certificate of analysis is available on request. Purity here is a document, not a claim.",
-
-      "Every batch is assayed by an independent laboratory for identity and purity before it carries the mark. The certificate of analysis names the lot it certifies, and the house holds one on file for every batch released. Nothing ships untested.",
+      "Every batch is independently assayed for identity and purity before it carries the mark. The certificate of analysis names the lot it certifies — purity here is a document, not a claim.",
 
     ],
 
